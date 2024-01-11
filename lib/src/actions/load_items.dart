@@ -7,7 +7,8 @@ part 'load_items.freezed.dart';
 
 @freezed
 class LoadItems with _$LoadItems implements AppAction {
-  const factory LoadItems(int page, {
+  const factory LoadItems(
+    int page, {
     @Default('') String query,
     @Default('') String color,
   }) = LoadItemsStart;
@@ -15,6 +16,5 @@ class LoadItems with _$LoadItems implements AppAction {
   const factory LoadItems.successful(List<Photo> photos) = LoadItemsSuccessful;
 
   @Implements<ErrorAction>()
-  const factory LoadItems.error(Object error,
-      StackTrace stackTrace) = LoadItemsError;
+  const factory LoadItems.error(Object error, StackTrace stackTrace) = LoadItemsError;
 }

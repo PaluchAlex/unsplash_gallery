@@ -17,13 +17,11 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, LoadItemsStart>(_loadItemsStart).call,
     ])(actions, store);
   }
-  Stream<dynamic> _loadItemsStart(Stream<LoadItemsStart> actions,
-      EpicStore<AppState> store) {
+
+  Stream<dynamic> _loadItemsStart(Stream<LoadItemsStart> actions, EpicStore<AppState> store) {
     return actions
-        .asyncMap((LoadItemsStart action) => api.loadItems(action.page,
-        query: action.query, color: action.color))
+        .asyncMap((LoadItemsStart action) => api.loadItems(action.page, query: action.query, color: action.color))
         .map((List<Photo> movies) => LoadItems.successful(movies))
-        .onErrorReturnWith((Object error, StackTrace stackTrace) =>
-        LoadItems.error(error, stackTrace));
+        .onErrorReturnWith((Object error, StackTrace stackTrace) => LoadItems.error(error, stackTrace));
   }
 }

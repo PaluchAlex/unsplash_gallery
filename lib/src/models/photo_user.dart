@@ -10,6 +10,5 @@ class PhotoUser with _$PhotoUser {
     required UserLinks links,
   }) = PhotoUser$;
 
-  factory PhotoUser.fromJson(Map<dynamic, dynamic> json) =>
-      _$PhotoUserFromJson(Map<String, dynamic>.from(json));
+  factory PhotoUser.fromJson(Map<dynamic, dynamic> json) => _$PhotoUserFromJson(Map<String, dynamic>.from(json));
 }

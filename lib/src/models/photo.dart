@@ -11,11 +11,10 @@ part 'photo.g.dart';
 class Photo with _$Photo {
   const factory Photo({
     required PhotoUrls urls,
-    @Default('')@JsonKey(name: 'alt_description') String description,
+    @Default('') @JsonKey(name: 'alt_description') String description,
     required int likes,
     required PhotoUser user,
   }) = Photo$;
 
-  factory Photo.fromJson(Map<dynamic, dynamic> json) =>
-      _$PhotoFromJson(Map<String, dynamic>.from(json));
+  factory Photo.fromJson(Map<dynamic, dynamic> json) => _$PhotoFromJson(Map<String, dynamic>.from(json));
 }

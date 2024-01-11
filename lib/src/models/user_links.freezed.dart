@@ -24,21 +24,18 @@ mixin _$UserLinks {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserLinksCopyWith<UserLinks> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserLinksCopyWith<UserLinks> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $UserLinksCopyWith<$Res> {
-  factory $UserLinksCopyWith(UserLinks value, $Res Function(UserLinks) then) =
-      _$UserLinksCopyWithImpl<$Res, UserLinks>;
+  factory $UserLinksCopyWith(UserLinks value, $Res Function(UserLinks) then) = _$UserLinksCopyWithImpl<$Res, UserLinks>;
   @useResult
   $Res call({String html});
 }
 
 /// @nodoc
-class _$UserLinksCopyWithImpl<$Res, $Val extends UserLinks>
-    implements $UserLinksCopyWith<$Res> {
+class _$UserLinksCopyWithImpl<$Res, $Val extends UserLinks> implements $UserLinksCopyWith<$Res> {
   _$UserLinksCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -61,10 +58,8 @@ class _$UserLinksCopyWithImpl<$Res, $Val extends UserLinks>
 }
 
 /// @nodoc
-abstract class _$$UserLinks$ImplCopyWith<$Res>
-    implements $UserLinksCopyWith<$Res> {
-  factory _$$UserLinks$ImplCopyWith(
-          _$UserLinks$Impl value, $Res Function(_$UserLinks$Impl) then) =
+abstract class _$$UserLinks$ImplCopyWith<$Res> implements $UserLinksCopyWith<$Res> {
+  factory _$$UserLinks$ImplCopyWith(_$UserLinks$Impl value, $Res Function(_$UserLinks$Impl) then) =
       __$$UserLinks$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -72,12 +67,9 @@ abstract class _$$UserLinks$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UserLinks$ImplCopyWithImpl<$Res>
-    extends _$UserLinksCopyWithImpl<$Res, _$UserLinks$Impl>
+class __$$UserLinks$ImplCopyWithImpl<$Res> extends _$UserLinksCopyWithImpl<$Res, _$UserLinks$Impl>
     implements _$$UserLinks$ImplCopyWith<$Res> {
-  __$$UserLinks$ImplCopyWithImpl(
-      _$UserLinks$Impl _value, $Res Function(_$UserLinks$Impl) _then)
-      : super(_value, _then);
+  __$$UserLinks$ImplCopyWithImpl(_$UserLinks$Impl _value, $Res Function(_$UserLinks$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -98,8 +90,7 @@ class __$$UserLinks$ImplCopyWithImpl<$Res>
 class _$UserLinks$Impl implements UserLinks$ {
   const _$UserLinks$Impl({required this.html});
 
-  factory _$UserLinks$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$UserLinks$ImplFromJson(json);
+  factory _$UserLinks$Impl.fromJson(Map<String, dynamic> json) => _$$UserLinks$ImplFromJson(json);
 
   @override
   final String html;
@@ -138,13 +129,11 @@ class _$UserLinks$Impl implements UserLinks$ {
 abstract class UserLinks$ implements UserLinks {
   const factory UserLinks$({required final String html}) = _$UserLinks$Impl;
 
-  factory UserLinks$.fromJson(Map<String, dynamic> json) =
-      _$UserLinks$Impl.fromJson;
+  factory UserLinks$.fromJson(Map<String, dynamic> json) = _$UserLinks$Impl.fromJson;
 
   @override
   String get html;
   @override
   @JsonKey(ignore: true)
-  _$$UserLinks$ImplCopyWith<_$UserLinks$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UserLinks$ImplCopyWith<_$UserLinks$Impl> get copyWith => throw _privateConstructorUsedError;
 }

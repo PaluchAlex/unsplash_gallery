@@ -8,7 +8,7 @@ part 'user_links.g.dart';
 class UserLinks with _$UserLinks {
   const factory UserLinks({
     required String html,
-}) = UserLinks$;
+  }) = UserLinks$;
 
   factory UserLinks.fromJson(Map<dynamic, dynamic> json) => _$UserLinksFromJson(Map<String, dynamic>.from(json));
 }

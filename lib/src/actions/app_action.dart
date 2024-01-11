@@ -4,7 +4,8 @@ abstract class AppAction {
 
 abstract class ErrorAction extends AppAction {
   const ErrorAction();
+
   Object get error;
+
   StackTrace get stackTrace;
 }
-

@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 
 import '../models/photo.dart';
@@ -13,8 +12,7 @@ class UnsplashApi {
   final String? _accessKey;
   final Client _client;
 
-  Future<List<Photo>> loadItems(int page,
-      {String query = '', String color = ''}) async {
+  Future<List<Photo>> loadItems(int page, {String query = '', String color = ''}) async {
     if (query.isEmpty && color.isEmpty) {
       final Response response = await _client.get(
         Uri.parse('https://api.unsplash'
@@ -23,13 +21,10 @@ class UnsplashApi {
       );
       if (response.statusCode == 200) {
         /// cast decoded as List<dynamic>
-        final List<dynamic> decoded =
-            jsonDecode(response.body) as List<dynamic>;
+        final List<dynamic> decoded = jsonDecode(response.body) as List<dynamic>;
 
         /// add to items as a instance of Class Photo
-        return decoded
-            .map((e) => Photo.fromJson(e as Map<String, dynamic>))
-            .toList();
+        return decoded.map((dynamic e) => Photo.fromJson(e as Map<String, dynamic>)).toList();
 
         ///prepare for loading next page
       }
@@ -48,13 +43,10 @@ class UnsplashApi {
       );
       if (response.statusCode == 200) {
         /// cast decoded as List<dynamic>
-        final Map<String, dynamic> decoded =
-            jsonDecode(response.body) as Map<String, dynamic>;
+        final Map<String, dynamic> decoded = jsonDecode(response.body) as Map<String, dynamic>;
 
         final List<dynamic> results = decoded['results'] as List<dynamic>;
-        return results
-            .map((item) => Photo.fromJson(item as Map<String, dynamic>))
-            .toList();
+        return results.map((dynamic item) => Photo.fromJson(item as Map<String, dynamic>)).toList();
 
         /// add to items as a instance of Class Photo
         // for (final dynamic item in results) {
@@ -68,11 +60,11 @@ class UnsplashApi {
   }
 }
 
-Future<void> main() async {
-  await dotenv.load();
-  final String? key = dotenv.env['UNSPLASH_API_KEY'];
-  final Client client = Client();
-  final UnsplashApi api = UnsplashApi(accessKey: 'Kqbl8h302zN0yYDESgZK8YmloTOnvsT-i-Nb2E8Fp9o', client: client);
-  final List<Photo> items = await api.loadItems(1, query: 'cat');
-  items.forEach(print);
-}
+// Future<void> main() async {
+//   await dotenv.load();
+//   final String? key = dotenv.env['UNSPLASH_API_KEY'];
+//   final Client client = Client();
+//   final UnsplashApi api = UnsplashApi(accessKey: key, client: client);
+//   final List<Photo> items = await api.loadItems(1, query: 'cat');
+//   items.forEach(print);
+// }

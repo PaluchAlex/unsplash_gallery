@@ -10,6 +10,5 @@ class PhotoUrls with _$PhotoUrls {
     required String small,
   }) = PhotoUrls$;
 
-  factory PhotoUrls.fromJson(Map<dynamic, dynamic> json) =>
-      _$PhotoUrlsFromJson(Map<String, dynamic>.from(json));
+  factory PhotoUrls.fromJson(Map<dynamic, dynamic> json) => _$PhotoUrlsFromJson(Map<String, dynamic>.from(json));
 }

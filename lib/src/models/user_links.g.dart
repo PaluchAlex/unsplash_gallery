@@ -6,12 +6,10 @@ part of 'user_links.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserLinks$Impl _$$UserLinks$ImplFromJson(Map<String, dynamic> json) =>
-    _$UserLinks$Impl(
+_$UserLinks$Impl _$$UserLinks$ImplFromJson(Map<String, dynamic> json) => _$UserLinks$Impl(
       html: json['html'] as String,
     );
 
-Map<String, dynamic> _$$UserLinks$ImplToJson(_$UserLinks$Impl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$UserLinks$ImplToJson(_$UserLinks$Impl instance) => <String, dynamic>{
       'html': instance.html,
     };

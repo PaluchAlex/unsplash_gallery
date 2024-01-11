@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:unsplash_gallery/src/models/photo.dart';
+import 'photo.dart';
 
 part 'app_state.freezed.dart';
 part 'app_state.g.dart';
@@ -12,4 +12,3 @@ class AppState with _$AppState {
 
   factory AppState.fromJson(Map<dynamic, dynamic> json) => _$AppStateFromJson(Map<String, dynamic>.from(json));
 }
-
