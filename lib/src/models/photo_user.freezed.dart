@@ -21,6 +21,7 @@ PhotoUser _$PhotoUserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PhotoUser {
   UserLinks get links => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -31,7 +32,7 @@ mixin _$PhotoUser {
 abstract class $PhotoUserCopyWith<$Res> {
   factory $PhotoUserCopyWith(PhotoUser value, $Res Function(PhotoUser) then) = _$PhotoUserCopyWithImpl<$Res, PhotoUser>;
   @useResult
-  $Res call({UserLinks links});
+  $Res call({UserLinks links, String name});
 
   $UserLinksCopyWith<$Res> get links;
 }
@@ -49,12 +50,17 @@ class _$PhotoUserCopyWithImpl<$Res, $Val extends PhotoUser> implements $PhotoUse
   @override
   $Res call({
     Object? links = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as UserLinks,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -73,7 +79,7 @@ abstract class _$$PhotoUser$ImplCopyWith<$Res> implements $PhotoUserCopyWith<$Re
       __$$PhotoUser$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserLinks links});
+  $Res call({UserLinks links, String name});
 
   @override
   $UserLinksCopyWith<$Res> get links;
@@ -88,12 +94,17 @@ class __$$PhotoUser$ImplCopyWithImpl<$Res> extends _$PhotoUserCopyWithImpl<$Res,
   @override
   $Res call({
     Object? links = null,
+    Object? name = null,
   }) {
     return _then(_$PhotoUser$Impl(
       links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as UserLinks,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -101,16 +112,18 @@ class __$$PhotoUser$ImplCopyWithImpl<$Res> extends _$PhotoUserCopyWithImpl<$Res,
 /// @nodoc
 @JsonSerializable()
 class _$PhotoUser$Impl implements PhotoUser$ {
-  const _$PhotoUser$Impl({required this.links});
+  const _$PhotoUser$Impl({required this.links, required this.name});
 
   factory _$PhotoUser$Impl.fromJson(Map<String, dynamic> json) => _$$PhotoUser$ImplFromJson(json);
 
   @override
   final UserLinks links;
+  @override
+  final String name;
 
   @override
   String toString() {
-    return 'PhotoUser(links: $links)';
+    return 'PhotoUser(links: $links, name: $name)';
   }
 
   @override
@@ -118,12 +131,13 @@ class _$PhotoUser$Impl implements PhotoUser$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PhotoUser$Impl &&
-            (identical(other.links, links) || other.links == links));
+            (identical(other.links, links) || other.links == links) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, links);
+  int get hashCode => Object.hash(runtimeType, links, name);
 
   @JsonKey(ignore: true)
   @override
@@ -140,12 +154,14 @@ class _$PhotoUser$Impl implements PhotoUser$ {
 }
 
 abstract class PhotoUser$ implements PhotoUser {
-  const factory PhotoUser$({required final UserLinks links}) = _$PhotoUser$Impl;
+  const factory PhotoUser$({required final UserLinks links, required final String name}) = _$PhotoUser$Impl;
 
   factory PhotoUser$.fromJson(Map<String, dynamic> json) = _$PhotoUser$Impl.fromJson;
 
   @override
   UserLinks get links;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$PhotoUser$ImplCopyWith<_$PhotoUser$Impl> get copyWith => throw _privateConstructorUsedError;

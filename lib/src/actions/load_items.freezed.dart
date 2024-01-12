@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoadItems {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int page, String query, String color) $default, {
+    TResult Function(String query, String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int page, String query, String color)? $default, {
+    TResult? Function(String query, String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int page, String query, String color)? $default, {
+    TResult Function(String query, String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -82,7 +82,7 @@ abstract class _$$LoadItemsStartImplCopyWith<$Res> {
   factory _$$LoadItemsStartImplCopyWith(_$LoadItemsStartImpl value, $Res Function(_$LoadItemsStartImpl) then) =
       __$$LoadItemsStartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int page, String query, String color});
+  $Res call({String query, String color});
 }
 
 /// @nodoc
@@ -94,15 +94,10 @@ class __$$LoadItemsStartImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? page = null,
     Object? query = null,
     Object? color = null,
   }) {
     return _then(_$LoadItemsStartImpl(
-      null == page
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -118,10 +113,8 @@ class __$$LoadItemsStartImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$
 /// @nodoc
 
 class _$LoadItemsStartImpl implements LoadItemsStart {
-  const _$LoadItemsStartImpl(this.page, {this.query = '', this.color = ''});
+  const _$LoadItemsStartImpl({this.query = '', this.color = ''});
 
-  @override
-  final int page;
   @override
   @JsonKey()
   final String query;
@@ -131,7 +124,7 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
 
   @override
   String toString() {
-    return 'LoadItems(page: $page, query: $query, color: $color)';
+    return 'LoadItems(query: $query, color: $color)';
   }
 
   @override
@@ -139,13 +132,12 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadItemsStartImpl &&
-            (identical(other.page, page) || other.page == page) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page, query, color);
+  int get hashCode => Object.hash(runtimeType, query, color);
 
   @JsonKey(ignore: true)
   @override
@@ -156,33 +148,33 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int page, String query, String color) $default, {
+    TResult Function(String query, String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
-    return $default(page, query, color);
+    return $default(query, color);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int page, String query, String color)? $default, {
+    TResult? Function(String query, String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
-    return $default?.call(page, query, color);
+    return $default?.call(query, color);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int page, String query, String color)? $default, {
+    TResult Function(String query, String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(page, query, color);
+      return $default(query, color);
     }
     return orElse();
   }
@@ -223,9 +215,8 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
 }
 
 abstract class LoadItemsStart implements LoadItems {
-  const factory LoadItemsStart(final int page, {final String query, final String color}) = _$LoadItemsStartImpl;
+  const factory LoadItemsStart({final String query, final String color}) = _$LoadItemsStartImpl;
 
-  int get page;
   String get query;
   String get color;
   @JsonKey(ignore: true)
@@ -300,7 +291,7 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int page, String query, String color) $default, {
+    TResult Function(String query, String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -310,7 +301,7 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int page, String query, String color)? $default, {
+    TResult? Function(String query, String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -320,7 +311,7 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int page, String query, String color)? $default, {
+    TResult Function(String query, String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -440,7 +431,7 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int page, String query, String color) $default, {
+    TResult Function(String query, String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -450,7 +441,7 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int page, String query, String color)? $default, {
+    TResult? Function(String query, String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -460,7 +451,7 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int page, String query, String color)? $default, {
+    TResult Function(String query, String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),

@@ -8,6 +8,7 @@ part 'photo_user.g.dart';
 class PhotoUser with _$PhotoUser {
   const factory PhotoUser({
     required UserLinks links,
+    required String name,
   }) = PhotoUser$;
 
   factory PhotoUser.fromJson(Map<dynamic, dynamic> json) => _$PhotoUserFromJson(Map<String, dynamic>.from(json));

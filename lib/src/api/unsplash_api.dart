@@ -46,6 +46,7 @@ class UnsplashApi {
         final Map<String, dynamic> decoded = jsonDecode(response.body) as Map<String, dynamic>;
 
         final List<dynamic> results = decoded['results'] as List<dynamic>;
+
         return results.map((dynamic item) => Photo.fromJson(item as Map<String, dynamic>)).toList();
 
         /// add to items as a instance of Class Photo
@@ -59,12 +60,3 @@ class UnsplashApi {
     return <Photo>[];
   }
 }
-
-// Future<void> main() async {
-//   await dotenv.load();
-//   final String? key = dotenv.env['UNSPLASH_API_KEY'];
-//   final Client client = Client();
-//   final UnsplashApi api = UnsplashApi(accessKey: key, client: client);
-//   final List<Photo> items = await api.loadItems(1, query: 'cat');
-//   items.forEach(print);
-// }

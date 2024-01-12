@@ -7,11 +7,15 @@ part of 'app_state.dart';
 // **************************************************************************
 
 _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) => _$AppState$Impl(
-      items:
-          (json['items'] as List<dynamic>?)?.map((dynamic e) => Photo.fromJson(e as Map<String, dynamic>)).toList() ??
+      page: json['page'] as int? ?? 1,
+      photos:
+          (json['photos'] as List<dynamic>?)?.map((dynamic e) => Photo.fromJson(e as Map<String, dynamic>)).toList() ??
               const <Photo>[],
+      isLoading: json['isLoading'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$AppState$ImplToJson(_$AppState$Impl instance) => <String, dynamic>{
-      'items': instance.items,
+      'page': instance.page,
+      'photos': instance.photos,
+      'isLoading': instance.isLoading,
     };
