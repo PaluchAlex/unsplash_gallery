@@ -20,7 +20,12 @@ class AppEpics extends EpicClass<AppState> {
 
   Stream<dynamic> _loadItemsStart(Stream<LoadItemsStart> actions, EpicStore<AppState> store) {
     return actions
-        .asyncMap((LoadItemsStart action) => api.loadItems(store.state.page, query: action.query, color: action.color))
+        .debounceTime(const Duration(milliseconds: 500))
+        .asyncMap((LoadItemsStart action) => api.loadItems(
+              store.state.page,
+              query: store.state.query,
+              color: action.color,
+            ))
         .map((List<Photo> movies) => LoadItems.successful(movies))
         .onErrorReturnWith((Object error, StackTrace stackTrace) => LoadItems.error(error, stackTrace));
   }

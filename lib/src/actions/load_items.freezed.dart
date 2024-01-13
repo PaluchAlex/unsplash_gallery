@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoadItems {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String query, String color) $default, {
+    TResult Function(String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String query, String color)? $default, {
+    TResult? Function(String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String query, String color)? $default, {
+    TResult Function(String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -64,11 +64,13 @@ mixin _$LoadItems {
 
 /// @nodoc
 abstract class $LoadItemsCopyWith<$Res> {
-  factory $LoadItemsCopyWith(LoadItems value, $Res Function(LoadItems) then) = _$LoadItemsCopyWithImpl<$Res, LoadItems>;
+  factory $LoadItemsCopyWith(LoadItems value, $Res Function(LoadItems) then) =
+      _$LoadItemsCopyWithImpl<$Res, LoadItems>;
 }
 
 /// @nodoc
-class _$LoadItemsCopyWithImpl<$Res, $Val extends LoadItems> implements $LoadItemsCopyWith<$Res> {
+class _$LoadItemsCopyWithImpl<$Res, $Val extends LoadItems>
+    implements $LoadItemsCopyWith<$Res> {
   _$LoadItemsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -79,29 +81,27 @@ class _$LoadItemsCopyWithImpl<$Res, $Val extends LoadItems> implements $LoadItem
 
 /// @nodoc
 abstract class _$$LoadItemsStartImplCopyWith<$Res> {
-  factory _$$LoadItemsStartImplCopyWith(_$LoadItemsStartImpl value, $Res Function(_$LoadItemsStartImpl) then) =
+  factory _$$LoadItemsStartImplCopyWith(_$LoadItemsStartImpl value,
+          $Res Function(_$LoadItemsStartImpl) then) =
       __$$LoadItemsStartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String query, String color});
+  $Res call({String color});
 }
 
 /// @nodoc
-class __$$LoadItemsStartImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsStartImpl>
+class __$$LoadItemsStartImplCopyWithImpl<$Res>
+    extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsStartImpl>
     implements _$$LoadItemsStartImplCopyWith<$Res> {
-  __$$LoadItemsStartImplCopyWithImpl(_$LoadItemsStartImpl _value, $Res Function(_$LoadItemsStartImpl) _then)
+  __$$LoadItemsStartImplCopyWithImpl(
+      _$LoadItemsStartImpl _value, $Res Function(_$LoadItemsStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? query = null,
     Object? color = null,
   }) {
     return _then(_$LoadItemsStartImpl(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String,
       color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -113,18 +113,15 @@ class __$$LoadItemsStartImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$
 /// @nodoc
 
 class _$LoadItemsStartImpl implements LoadItemsStart {
-  const _$LoadItemsStartImpl({this.query = '', this.color = ''});
+  const _$LoadItemsStartImpl({this.color = ''});
 
-  @override
-  @JsonKey()
-  final String query;
   @override
   @JsonKey()
   final String color;
 
   @override
   String toString() {
-    return 'LoadItems(query: $query, color: $color)';
+    return 'LoadItems(color: $color)';
   }
 
   @override
@@ -132,49 +129,49 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadItemsStartImpl &&
-            (identical(other.query, query) || other.query == query) &&
             (identical(other.color, color) || other.color == color));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, query, color);
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadItemsStartImplCopyWith<_$LoadItemsStartImpl> get copyWith =>
-      __$$LoadItemsStartImplCopyWithImpl<_$LoadItemsStartImpl>(this, _$identity);
+      __$$LoadItemsStartImplCopyWithImpl<_$LoadItemsStartImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String query, String color) $default, {
+    TResult Function(String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
-    return $default(query, color);
+    return $default(color);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String query, String color)? $default, {
+    TResult? Function(String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
-    return $default?.call(query, color);
+    return $default?.call(color);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String query, String color)? $default, {
+    TResult Function(String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(query, color);
+      return $default(color);
     }
     return orElse();
   }
@@ -215,28 +212,29 @@ class _$LoadItemsStartImpl implements LoadItemsStart {
 }
 
 abstract class LoadItemsStart implements LoadItems {
-  const factory LoadItemsStart({final String query, final String color}) = _$LoadItemsStartImpl;
+  const factory LoadItemsStart({final String color}) = _$LoadItemsStartImpl;
 
-  String get query;
   String get color;
   @JsonKey(ignore: true)
-  _$$LoadItemsStartImplCopyWith<_$LoadItemsStartImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$LoadItemsStartImplCopyWith<_$LoadItemsStartImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LoadItemsSuccessfulImplCopyWith<$Res> {
-  factory _$$LoadItemsSuccessfulImplCopyWith(
-          _$LoadItemsSuccessfulImpl value, $Res Function(_$LoadItemsSuccessfulImpl) then) =
+  factory _$$LoadItemsSuccessfulImplCopyWith(_$LoadItemsSuccessfulImpl value,
+          $Res Function(_$LoadItemsSuccessfulImpl) then) =
       __$$LoadItemsSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Photo> photos});
 }
 
 /// @nodoc
-class __$$LoadItemsSuccessfulImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsSuccessfulImpl>
+class __$$LoadItemsSuccessfulImplCopyWithImpl<$Res>
+    extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsSuccessfulImpl>
     implements _$$LoadItemsSuccessfulImplCopyWith<$Res> {
-  __$$LoadItemsSuccessfulImplCopyWithImpl(
-      _$LoadItemsSuccessfulImpl _value, $Res Function(_$LoadItemsSuccessfulImpl) _then)
+  __$$LoadItemsSuccessfulImplCopyWithImpl(_$LoadItemsSuccessfulImpl _value,
+      $Res Function(_$LoadItemsSuccessfulImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -280,18 +278,20 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_photos));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_photos));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadItemsSuccessfulImplCopyWith<_$LoadItemsSuccessfulImpl> get copyWith =>
-      __$$LoadItemsSuccessfulImplCopyWithImpl<_$LoadItemsSuccessfulImpl>(this, _$identity);
+      __$$LoadItemsSuccessfulImplCopyWithImpl<_$LoadItemsSuccessfulImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String query, String color) $default, {
+    TResult Function(String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -301,7 +301,7 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String query, String color)? $default, {
+    TResult? Function(String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -311,7 +311,7 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String query, String color)? $default, {
+    TResult Function(String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -358,25 +358,30 @@ class _$LoadItemsSuccessfulImpl implements LoadItemsSuccessful {
 }
 
 abstract class LoadItemsSuccessful implements LoadItems {
-  const factory LoadItemsSuccessful(final List<Photo> photos) = _$LoadItemsSuccessfulImpl;
+  const factory LoadItemsSuccessful(final List<Photo> photos) =
+      _$LoadItemsSuccessfulImpl;
 
   List<Photo> get photos;
   @JsonKey(ignore: true)
-  _$$LoadItemsSuccessfulImplCopyWith<_$LoadItemsSuccessfulImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$LoadItemsSuccessfulImplCopyWith<_$LoadItemsSuccessfulImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$LoadItemsErrorImplCopyWith<$Res> {
-  factory _$$LoadItemsErrorImplCopyWith(_$LoadItemsErrorImpl value, $Res Function(_$LoadItemsErrorImpl) then) =
+  factory _$$LoadItemsErrorImplCopyWith(_$LoadItemsErrorImpl value,
+          $Res Function(_$LoadItemsErrorImpl) then) =
       __$$LoadItemsErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$LoadItemsErrorImplCopyWithImpl<$Res> extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsErrorImpl>
+class __$$LoadItemsErrorImplCopyWithImpl<$Res>
+    extends _$LoadItemsCopyWithImpl<$Res, _$LoadItemsErrorImpl>
     implements _$$LoadItemsErrorImplCopyWith<$Res> {
-  __$$LoadItemsErrorImplCopyWithImpl(_$LoadItemsErrorImpl _value, $Res Function(_$LoadItemsErrorImpl) _then)
+  __$$LoadItemsErrorImplCopyWithImpl(
+      _$LoadItemsErrorImpl _value, $Res Function(_$LoadItemsErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -416,22 +421,25 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
         (other.runtimeType == runtimeType &&
             other is _$LoadItemsErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadItemsErrorImplCopyWith<_$LoadItemsErrorImpl> get copyWith =>
-      __$$LoadItemsErrorImplCopyWithImpl<_$LoadItemsErrorImpl>(this, _$identity);
+      __$$LoadItemsErrorImplCopyWithImpl<_$LoadItemsErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String query, String color) $default, {
+    TResult Function(String color) $default, {
     required TResult Function(List<Photo> photos) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -441,7 +449,7 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String query, String color)? $default, {
+    TResult? Function(String color)? $default, {
     TResult? Function(List<Photo> photos)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -451,7 +459,7 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String query, String color)? $default, {
+    TResult Function(String color)? $default, {
     TResult Function(List<Photo> photos)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -498,10 +506,12 @@ class _$LoadItemsErrorImpl implements LoadItemsError {
 }
 
 abstract class LoadItemsError implements LoadItems, ErrorAction {
-  const factory LoadItemsError(final Object error, final StackTrace stackTrace) = _$LoadItemsErrorImpl;
+  const factory LoadItemsError(
+      final Object error, final StackTrace stackTrace) = _$LoadItemsErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$LoadItemsErrorImplCopyWith<_$LoadItemsErrorImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$LoadItemsErrorImplCopyWith<_$LoadItemsErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

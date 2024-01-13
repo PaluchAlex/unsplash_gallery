@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../actions/load_items.dart';
+import '../actions/set.dart';
 import '../models/photo.dart';
 import 'containers/is_loading_container.dart';
 import 'containers/photos_container.dart';
-import 'extentions.dart';
+import 'extensions.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,10 +19,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final ScrollController controller = ScrollController();
-  final List<Photo> items = <Photo>[];
-  // int page = 1;
-  // String query = '';
-  // String color = '';
 
   @override
   void initState() {
@@ -38,7 +35,7 @@ class _HomeState extends State<Home> {
     final double screenHeight = MediaQuery.sizeOf(context).height;
     final double threshold = maxExtent - 2 * screenHeight;
 
-    /// load items when scrolled past 80% of max
+    /// load items when 2 screens of scroll remain
     if (!context.state.isLoading && offset > threshold) {
       context.dispatch(const LoadItems());
     }
@@ -84,11 +81,9 @@ class _HomeState extends State<Home> {
                               hintText: 'Search',
                             ),
                             onChanged: (String value) {
-                              //query = value;
-
-                              /// reset pages
-                              //resetContent();
-                              // loadItems();
+                              context
+                                ..dispatch(SetQuery(value))
+                                ..dispatch(const LoadItems());
                             },
                           ),
                         ),

@@ -8,7 +8,6 @@ part 'load_items.freezed.dart';
 @freezed
 class LoadItems with _$LoadItems implements AppAction {
   const factory LoadItems({
-    @Default('') String query,
     @Default('') String color,
   }) = LoadItemsStart;
 
