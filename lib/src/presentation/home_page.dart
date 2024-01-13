@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../actions/load_items.dart';
 import '../actions/set.dart';
+import '../models/app_state.dart';
 import '../models/photo.dart';
 import 'containers/is_loading_container.dart';
 import 'containers/photos_container.dart';
@@ -19,6 +20,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final ScrollController controller = ScrollController();
+  final TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
@@ -64,127 +66,138 @@ class _HomeState extends State<Home> {
       builder: (BuildContext context, List<Photo> items) {
         return IsLoadingContainer(
           builder: (BuildContext context, bool isLoading) {
-            return Scaffold(
-              appBar: AppBar(
-                title: const Text('Unsplash Gallery'),
-                centerTitle: true,
-              ),
-              body: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            decoration: const InputDecoration(
-                              hintText: 'Search',
+            return RefreshIndicator(
+              onRefresh: () async {
+                textController.clear();
+                context
+                  ..dispatch(const SetQuery(''))
+                  ..dispatch(const LoadItems());
+
+                context.store.onChange.firstWhere((AppState state) => !state.isLoading);
+              },
+              child: Scaffold(
+                appBar: AppBar(
+                  title: const Text('Unsplash Gallery'),
+                  centerTitle: true,
+                ),
+                body: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextField(
+                              controller: textController,
+                              decoration: const InputDecoration(
+                                hintText: 'Search',
+                              ),
+                              onChanged: (String value) {
+                                context
+                                  ..dispatch(SetQuery(value))
+                                  ..dispatch(const LoadItems());
+                              },
                             ),
-                            onChanged: (String value) {
-                              context
-                                ..dispatch(SetQuery(value))
-                                ..dispatch(const LoadItems());
-                            },
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: DropdownMenu<String>(
-                          onSelected: (String? value) {
-                            //color = value ?? '';
-                            //resetContent();
-                            // loadItems();
-                          },
-                          dropdownMenuEntries: allColors.map(
-                            (String item) {
-                              return DropdownMenuEntry<String>(
-                                value: item,
-                                label: item,
-                              );
+                        Expanded(
+                          child: DropdownMenu<String>(
+                            onSelected: (String? value) {
+                              //color = value ?? '';
+                              //resetContent();
+                              // loadItems();
                             },
-                          ).toList(),
-                        ),
-                      )
-                    ],
-                  ),
-                  Expanded(
-                    child: Builder(
-                      builder: (BuildContext context) {
-                        return CustomScrollView(
-                          controller: controller,
-                          slivers: <Widget>[
-                            if (items.isEmpty && !isLoading)
-                              const SliverToBoxAdapter(
-                                child: Center(
-                                  child: Text('no items found'),
-                                ),
-                              ),
-                            SliverList(
-                              delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                                final Photo photo = items[index];
-
-                                return Column(
-                                  children: <Widget>[
-                                    InkWell(
-                                      onTap: () {
-                                        photo.user.links;
-                                        _launchURL(Uri.parse(photo.user.links.html));
-                                      },
-                                      child: Image.network(
-                                        photo.urls.small,
-                                        //height: 445,
-                                        loadingBuilder:
-                                            (BuildContext context, Widget widget, ImageChunkEvent? progress) {
-                                          if (progress == null) {
-                                            return widget;
-                                          }
-                                          return SizedBox(
-                                            height: 345,
-                                            child: Center(
-                                              child: CircularProgressIndicator(
-                                                value:
-                                                    progress.cumulativeBytesLoaded / (progress.expectedTotalBytes ?? 1),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: ListTile(
-                                        title: Row(
-                                          children: <Widget>[
-                                            Text('Likes: ${photo.likes}'),
-                                            Expanded(child: Container()),
-                                            Text('Author: ${photo.user.name}'),
-                                          ],
-                                        ),
-                                        subtitle: Center(child: Text(photo.description)),
-                                      ),
-                                    ),
-                                  ],
+                            dropdownMenuEntries: allColors.map(
+                              (String item) {
+                                return DropdownMenuEntry<String>(
+                                  value: item,
+                                  label: item,
                                 );
-                              }, childCount: items.length),
-                            ),
-                            if (isLoading)
-                              const SliverToBoxAdapter(
-                                child: Padding(
-                                  padding: EdgeInsets.all(32),
+                              },
+                            ).toList(),
+                          ),
+                        )
+                      ],
+                    ),
+                    Expanded(
+                      child: Builder(
+                        builder: (BuildContext context) {
+                          return CustomScrollView(
+                            controller: controller,
+                            slivers: <Widget>[
+                              if (items.isEmpty && !isLoading)
+                                const SliverToBoxAdapter(
+                                  child: Center(
+                                    child: Text('no items found'),
+                                  ),
+                                ),
+                              SliverList(
+                                delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+                                  final Photo photo = items[index];
+
+                                  return Column(
+                                    children: <Widget>[
+                                      InkWell(
+                                        onTap: () {
+                                          photo.user.links;
+                                          _launchURL(Uri.parse(photo.user.links.html));
+                                        },
+                                        child: Image.network(
+                                          photo.urls.small,
+                                          //height: 445,
+                                          loadingBuilder:
+                                              (BuildContext context, Widget widget, ImageChunkEvent? progress) {
+                                            if (progress == null) {
+                                              return widget;
+                                            }
+                                            return SizedBox(
+                                              height: 345,
+                                              child: Center(
+                                                child: CircularProgressIndicator(
+                                                  value: progress.cumulativeBytesLoaded /
+                                                      (progress.expectedTotalBytes ?? 1),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: ListTile(
+                                          title: Row(
+                                            children: <Widget>[
+                                              Text('Likes: ${photo.likes}'),
+                                              Expanded(child: Container()),
+                                              Text('Author: ${photo.user.name}'),
+                                            ],
+                                          ),
+                                          subtitle: Center(child: Text(photo.description)),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }, childCount: items.length),
+                              ),
+                              if (isLoading)
+                                const SliverToBoxAdapter(
                                   child: Padding(
-                                    padding: EdgeInsets.only(bottom: 16),
-                                    child: Center(
-                                      child: CircularProgressIndicator(),
+                                    padding: EdgeInsets.all(32),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(bottom: 16),
+                                      child: Center(
+                                        child: CircularProgressIndicator(),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                          ],
-                        );
-                      },
+                            ],
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },

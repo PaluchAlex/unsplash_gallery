@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 import '../actions/app_action.dart';
 import '../models/app_state.dart';
@@ -11,5 +12,9 @@ extension BuildContextEx on BuildContext {
 
   AppState get state {
     return StoreProvider.of<AppState>(this, listen: false).state;
+  }
+
+  Store<AppState> get store {
+    return StoreProvider.of<AppState>(this, listen: false);
   }
 }
