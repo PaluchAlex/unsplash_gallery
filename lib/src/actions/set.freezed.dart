@@ -19,21 +19,18 @@ mixin _$SetQuery {
   String get query => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetQueryCopyWith<SetQuery> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SetQueryCopyWith<SetQuery> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetQueryCopyWith<$Res> {
-  factory $SetQueryCopyWith(SetQuery value, $Res Function(SetQuery) then) =
-      _$SetQueryCopyWithImpl<$Res, SetQuery>;
+  factory $SetQueryCopyWith(SetQuery value, $Res Function(SetQuery) then) = _$SetQueryCopyWithImpl<$Res, SetQuery>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery>
-    implements $SetQueryCopyWith<$Res> {
+class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery> implements $SetQueryCopyWith<$Res> {
   _$SetQueryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -56,10 +53,8 @@ class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery>
 }
 
 /// @nodoc
-abstract class _$$SetQuery$ImplCopyWith<$Res>
-    implements $SetQueryCopyWith<$Res> {
-  factory _$$SetQuery$ImplCopyWith(
-          _$SetQuery$Impl value, $Res Function(_$SetQuery$Impl) then) =
+abstract class _$$SetQuery$ImplCopyWith<$Res> implements $SetQueryCopyWith<$Res> {
+  factory _$$SetQuery$ImplCopyWith(_$SetQuery$Impl value, $Res Function(_$SetQuery$Impl) then) =
       __$$SetQuery$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -67,12 +62,9 @@ abstract class _$$SetQuery$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetQuery$ImplCopyWithImpl<$Res>
-    extends _$SetQueryCopyWithImpl<$Res, _$SetQuery$Impl>
+class __$$SetQuery$ImplCopyWithImpl<$Res> extends _$SetQueryCopyWithImpl<$Res, _$SetQuery$Impl>
     implements _$$SetQuery$ImplCopyWith<$Res> {
-  __$$SetQuery$ImplCopyWithImpl(
-      _$SetQuery$Impl _value, $Res Function(_$SetQuery$Impl) _then)
-      : super(_value, _then);
+  __$$SetQuery$ImplCopyWithImpl(_$SetQuery$Impl _value, $Res Function(_$SetQuery$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -126,6 +118,5 @@ abstract class SetQuery$ implements SetQuery {
   String get query;
   @override
   @JsonKey(ignore: true)
-  _$$SetQuery$ImplCopyWith<_$SetQuery$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetQuery$ImplCopyWith<_$SetQuery$Impl> get copyWith => throw _privateConstructorUsedError;
 }
