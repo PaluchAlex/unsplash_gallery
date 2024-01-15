@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:redux/redux.dart';
 
+import '../actions/create_user.dart';
 import '../actions/load_items.dart';
 import '../actions/set.dart';
 import '../models/app_state.dart';
@@ -16,6 +17,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, LoadItemsSuccessful>(_loadItemsSuccessful).call,
       TypedReducer<AppState, LoadItemsError>(_loadItemsError).call,
       TypedReducer<AppState, SetQuery>(_setQuery).call,
+      TypedReducer<AppState, CreateUserSuccessful>(_createUserSuccessful).call,
     ],
   )(state, action);
 }
@@ -42,4 +44,8 @@ AppState _loadItemsSuccessful(AppState state, LoadItemsSuccessful action) {
     page: state.page + 1,
     photos: <Photo>[...state.photos, ...action.photos],
   );
+}
+
+AppState _createUserSuccessful(AppState state, CreateUserSuccessful action) {
+  return state.copyWith(user: action.user);
 }

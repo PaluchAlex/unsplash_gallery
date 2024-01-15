@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'app_user.dart';
 import 'photo.dart';
 
 part 'app_state.freezed.dart';
@@ -7,6 +8,7 @@ part 'app_state.g.dart';
 @freezed
 class AppState with _$AppState {
   const factory AppState({
+    AppUser? user,
     @Default('') String query,
     @Default(1) int page,
     @Default(<Photo>[]) List<Photo> photos,

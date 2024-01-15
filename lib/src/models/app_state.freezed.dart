@@ -20,6 +20,7 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppState {
+  AppUser? get user => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   List<Photo> get photos => throw _privateConstructorUsedError;
@@ -34,7 +35,9 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({String query, int page, List<Photo> photos, bool isLoading});
+  $Res call({AppUser? user, String query, int page, List<Photo> photos, bool isLoading});
+
+  $AppUserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -49,12 +52,17 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? user = freezed,
     Object? query = null,
     Object? page = null,
     Object? photos = null,
     Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser?,
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -73,6 +81,18 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
               as bool,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppUserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $AppUserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -81,7 +101,10 @@ abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res>
       __$$AppState$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String query, int page, List<Photo> photos, bool isLoading});
+  $Res call({AppUser? user, String query, int page, List<Photo> photos, bool isLoading});
+
+  @override
+  $AppUserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -92,12 +115,17 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? user = freezed,
     Object? query = null,
     Object? page = null,
     Object? photos = null,
     Object? isLoading = null,
   }) {
     return _then(_$AppState$Impl(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser?,
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -122,11 +150,13 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
 @JsonSerializable()
 class _$AppState$Impl implements AppState$ {
   const _$AppState$Impl(
-      {this.query = '', this.page = 1, final List<Photo> photos = const <Photo>[], this.isLoading = false})
+      {this.user, this.query = '', this.page = 1, final List<Photo> photos = const <Photo>[], this.isLoading = false})
       : _photos = photos;
 
   factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
 
+  @override
+  final AppUser? user;
   @override
   @JsonKey()
   final String query;
@@ -148,7 +178,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(query: $query, page: $page, photos: $photos, isLoading: $isLoading)';
+    return 'AppState(user: $user, query: $query, page: $page, photos: $photos, isLoading: $isLoading)';
   }
 
   @override
@@ -156,6 +186,7 @@ class _$AppState$Impl implements AppState$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.page, page) || other.page == page) &&
             const DeepCollectionEquality().equals(other._photos, _photos) &&
@@ -164,7 +195,8 @@ class _$AppState$Impl implements AppState$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, query, page, const DeepCollectionEquality().hash(_photos), isLoading);
+  int get hashCode =>
+      Object.hash(runtimeType, user, query, page, const DeepCollectionEquality().hash(_photos), isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -181,11 +213,17 @@ class _$AppState$Impl implements AppState$ {
 }
 
 abstract class AppState$ implements AppState {
-  const factory AppState$({final String query, final int page, final List<Photo> photos, final bool isLoading}) =
-      _$AppState$Impl;
+  const factory AppState$(
+      {final AppUser? user,
+      final String query,
+      final int page,
+      final List<Photo> photos,
+      final bool isLoading}) = _$AppState$Impl;
 
   factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$Impl.fromJson;
 
+  @override
+  AppUser? get user;
   @override
   String get query;
   @override
