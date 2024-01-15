@@ -8,13 +8,13 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
-import 'package:unsplash_gallery/src/presentation/create_user.dart';
 
 import 'firebase_options.dart';
 import 'src/api/auth_api.dart';
 import 'src/api/unsplash_api.dart';
 import 'src/epics/app_epics.dart';
 import 'src/models/app_state.dart';
+import 'src/presentation/create_user.dart';
 import 'src/presentation/home_page.dart';
 import 'src/reducer/reducer.dart';
 
