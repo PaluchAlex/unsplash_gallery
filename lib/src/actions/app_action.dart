@@ -9,3 +9,5 @@ abstract class ErrorAction extends AppAction {
 
   StackTrace get stackTrace;
 }
+
+typedef ActionResult = void Function(AppAction action);

@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -83,7 +83,7 @@ abstract class _$$CreateUserStartImplCopyWith<$Res> {
   factory _$$CreateUserStartImplCopyWith(_$CreateUserStartImpl value, $Res Function(_$CreateUserStartImpl) then) =
       __$$CreateUserStartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String email, String password, ActionResult result});
 }
 
 /// @nodoc
@@ -97,6 +97,7 @@ class __$$CreateUserStartImplCopyWithImpl<$Res> extends _$CreateUserCopyWithImpl
   $Res call({
     Object? email = null,
     Object? password = null,
+    Object? result = null,
   }) {
     return _then(_$CreateUserStartImpl(
       email: null == email
@@ -107,6 +108,10 @@ class __$$CreateUserStartImplCopyWithImpl<$Res> extends _$CreateUserCopyWithImpl
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
     ));
   }
 }
@@ -114,16 +119,18 @@ class __$$CreateUserStartImplCopyWithImpl<$Res> extends _$CreateUserCopyWithImpl
 /// @nodoc
 
 class _$CreateUserStartImpl implements CreateUserStart {
-  const _$CreateUserStartImpl({required this.email, required this.password});
+  const _$CreateUserStartImpl({required this.email, required this.password, required this.result});
 
   @override
   final String email;
   @override
   final String password;
+  @override
+  final ActionResult result;
 
   @override
   String toString() {
-    return 'CreateUser(email: $email, password: $password)';
+    return 'CreateUser(email: $email, password: $password, result: $result)';
   }
 
   @override
@@ -132,11 +139,12 @@ class _$CreateUserStartImpl implements CreateUserStart {
         (other.runtimeType == runtimeType &&
             other is _$CreateUserStartImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) || other.password == password) &&
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, email, password, result);
 
   @JsonKey(ignore: true)
   @override
@@ -147,33 +155,33 @@ class _$CreateUserStartImpl implements CreateUserStart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
-    return $default(email, password);
+    return $default(email, password, result);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
-    return $default?.call(email, password);
+    return $default?.call(email, password, result);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(email, password);
+      return $default(email, password, result);
     }
     return orElse();
   }
@@ -214,10 +222,14 @@ class _$CreateUserStartImpl implements CreateUserStart {
 }
 
 abstract class CreateUserStart implements CreateUser {
-  const factory CreateUserStart({required final String email, required final String password}) = _$CreateUserStartImpl;
+  const factory CreateUserStart(
+      {required final String email,
+      required final String password,
+      required final ActionResult result}) = _$CreateUserStartImpl;
 
   String get email;
   String get password;
+  ActionResult get result;
   @JsonKey(ignore: true)
   _$$CreateUserStartImplCopyWith<_$CreateUserStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
@@ -295,7 +307,7 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -305,7 +317,7 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -315,7 +327,7 @@ class _$CreateUserSuccessfulImpl implements CreateUserSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -435,7 +447,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -445,7 +457,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -455,7 +467,7 @@ class _$CreateUserErrorImpl implements CreateUserError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),

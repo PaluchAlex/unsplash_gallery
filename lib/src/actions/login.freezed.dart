@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Login {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -82,7 +82,7 @@ abstract class _$$LoginStartImplCopyWith<$Res> {
   factory _$$LoginStartImplCopyWith(_$LoginStartImpl value, $Res Function(_$LoginStartImpl) then) =
       __$$LoginStartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String email, String password, ActionResult result});
 }
 
 /// @nodoc
@@ -95,6 +95,7 @@ class __$$LoginStartImplCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res, _$L
   $Res call({
     Object? email = null,
     Object? password = null,
+    Object? result = null,
   }) {
     return _then(_$LoginStartImpl(
       email: null == email
@@ -105,6 +106,10 @@ class __$$LoginStartImplCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res, _$L
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
     ));
   }
 }
@@ -112,16 +117,18 @@ class __$$LoginStartImplCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res, _$L
 /// @nodoc
 
 class _$LoginStartImpl implements LoginStart {
-  const _$LoginStartImpl({required this.email, required this.password});
+  const _$LoginStartImpl({required this.email, required this.password, required this.result});
 
   @override
   final String email;
   @override
   final String password;
+  @override
+  final ActionResult result;
 
   @override
   String toString() {
-    return 'Login(email: $email, password: $password)';
+    return 'Login(email: $email, password: $password, result: $result)';
   }
 
   @override
@@ -130,11 +137,12 @@ class _$LoginStartImpl implements LoginStart {
         (other.runtimeType == runtimeType &&
             other is _$LoginStartImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) || other.password == password) &&
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, email, password, result);
 
   @JsonKey(ignore: true)
   @override
@@ -145,33 +153,33 @@ class _$LoginStartImpl implements LoginStart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
-    return $default(email, password);
+    return $default(email, password, result);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
-    return $default?.call(email, password);
+    return $default?.call(email, password, result);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(email, password);
+      return $default(email, password, result);
     }
     return orElse();
   }
@@ -212,10 +220,14 @@ class _$LoginStartImpl implements LoginStart {
 }
 
 abstract class LoginStart implements Login {
-  const factory LoginStart({required final String email, required final String password}) = _$LoginStartImpl;
+  const factory LoginStart(
+      {required final String email,
+      required final String password,
+      required final ActionResult result}) = _$LoginStartImpl;
 
   String get email;
   String get password;
+  ActionResult get result;
   @JsonKey(ignore: true)
   _$$LoginStartImplCopyWith<_$LoginStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
@@ -291,7 +303,7 @@ class _$LoginSuccessfulImpl implements LoginSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -301,7 +313,7 @@ class _$LoginSuccessfulImpl implements LoginSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -311,7 +323,7 @@ class _$LoginSuccessfulImpl implements LoginSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -430,7 +442,7 @@ class _$LoginErrorImpl implements LoginError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String email, String password) $default, {
+    TResult Function(String email, String password, ActionResult result) $default, {
     required TResult Function(AppUser user) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -440,7 +452,7 @@ class _$LoginErrorImpl implements LoginError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String email, String password)? $default, {
+    TResult? Function(String email, String password, ActionResult result)? $default, {
     TResult? Function(AppUser user)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -450,7 +462,7 @@ class _$LoginErrorImpl implements LoginError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String email, String password)? $default, {
+    TResult Function(String email, String password, ActionResult result)? $default, {
     TResult Function(AppUser user)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),

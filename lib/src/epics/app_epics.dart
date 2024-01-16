@@ -53,7 +53,8 @@ class AppEpics extends EpicClass<AppState> {
       return Stream<void>.value(null)
           .asyncMap((_) => authApi.createUser(email: action.email, password: action.password))
           .map((AppUser user) => CreateUser.successful(user))
-          .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateUser.error(error, stackTrace));
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateUser.error(error, stackTrace))
+          .doOnData(action.result);
     });
   }
 
@@ -83,7 +84,8 @@ class AppEpics extends EpicClass<AppState> {
       return Stream<void>.value(null)
           .asyncMap((_) => authApi.login(email: action.email, password: action.password))
           .map((AppUser user) => Login.successful(user))
-          .onErrorReturnWith((Object error, StackTrace stackTrace) => Login.error(error, stackTrace));
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => Login.error(error, stackTrace))
+          .doOnData(action.result);
     });
   }
 }

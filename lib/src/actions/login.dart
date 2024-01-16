@@ -7,7 +7,11 @@ part 'login.freezed.dart';
 
 @freezed
 class Login with _$Login implements AppAction {
-  const factory Login({required String email, required String password}) = LoginStart;
+  const factory Login({
+    required String email,
+    required String password,
+    required ActionResult result,
+  }) = LoginStart;
 
   const factory Login.successful(AppUser user) = LoginSuccessful;
 
