@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../actions/create_user.dart';
+import '../actions/login.dart';
 import 'extensions.dart';
 
-class CreateUserPage extends StatefulWidget {
-  const CreateUserPage({super.key});
+class LoginUserPage extends StatefulWidget {
+  const LoginUserPage({super.key});
 
   @override
-  State<CreateUserPage> createState() => _CreateUserPageState();
+  State<LoginUserPage> createState() => _LoginUserPageState();
 }
 
-class _CreateUserPageState extends State<CreateUserPage> {
+class _LoginUserPageState extends State<LoginUserPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
@@ -19,7 +19,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create user'),
+        title: const Text('Login user'),
       ),
       body: SafeArea(
         child: Padding(
@@ -49,7 +49,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
                   ),
                   validator: (String? value) {
                     if (value == null || value.length < 6) {
-                      return 'Password must have at least 6 characters.';
+                      return 'Password less than 6 characters.';
                     }
 
                     return null;
@@ -58,16 +58,16 @@ class _CreateUserPageState extends State<CreateUserPage> {
                 ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      context.dispatch(CreateUser(email: email.text, password: password.text));
+                      context.dispatch(Login(email: email.text, password: password.text));
                     }
                   },
-                  child: const Text('Create user'),
+                  child: const Text('Login user'),
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/loginUser');
+                    Navigator.pushReplacementNamed(context, '/createUser');
                   },
-                  child: const Text('Login user'),
+                  child: const Text('Create user'),
                 ),
               ],
             ),

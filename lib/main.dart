@@ -17,6 +17,7 @@ import 'src/epics/app_epics.dart';
 import 'src/models/app_state.dart';
 import 'src/presentation/create_user.dart';
 import 'src/presentation/home_page.dart';
+import 'src/presentation/login_user.dart';
 import 'src/reducer/reducer.dart';
 
 Future<void> main() async {
@@ -30,10 +31,13 @@ Future<void> main() async {
   final AuthApi authApi = AuthApi(auth: auth);
   final UnsplashApi api = UnsplashApi(client: client, accessKey: key);
   final AppEpics appEpics = AppEpics(api, authApi);
-  final Store<AppState> store =
-      Store<AppState>(reducer, initialState: const AppState(), middleware: <Middleware<AppState>>[
-    EpicMiddleware<AppState>(appEpics.call).call,
-  ],);
+  final Store<AppState> store = Store<AppState>(
+    reducer,
+    initialState: const AppState(),
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(appEpics.call).call,
+    ],
+  );
   store.dispatch(const GetCurrentUser());
   runApp(Gallery(
     store: store,
@@ -55,6 +59,7 @@ class Gallery extends StatelessWidget {
         home: const Home(),
         routes: <String, WidgetBuilder>{
           '/createUser': (BuildContext context) => const CreateUserPage(),
+          '/loginUser': (BuildContext context) => const LoginUserPage(),
         },
       ),
     );

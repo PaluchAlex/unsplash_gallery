@@ -5,6 +5,7 @@ import 'package:redux/redux.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/load_items.dart';
+import '../actions/login.dart';
 import '../actions/set.dart';
 import '../actions/sign_out.dart';
 import '../models/app_state.dart';
@@ -22,6 +23,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, CreateUserSuccessful>(_createUserSuccessful).call,
       TypedReducer<AppState, GetCurrentUserSuccessful>(_getCurrentUserSuccessful).call,
       TypedReducer<AppState, SignOutSuccessful>(_signOutSuccessful).call,
+      TypedReducer<AppState, LoginSuccessful>(_loginSuccessful).call,
     ],
   )(state, action);
 }
@@ -60,4 +62,8 @@ AppState _getCurrentUserSuccessful(AppState state, GetCurrentUserSuccessful acti
 
 AppState _signOutSuccessful(AppState state, SignOutSuccessful action) {
   return state.copyWith(user: null);
+}
+
+AppState _loginSuccessful(AppState state, LoginSuccessful action) {
+  return state.copyWith(user: action.user);
 }

@@ -5,6 +5,7 @@ import '../actions/app_action.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/load_items.dart';
+import '../actions/login.dart';
 import '../actions/sign_out.dart';
 import '../api/auth_api.dart';
 import '../api/unsplash_api.dart';
@@ -25,6 +26,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, CreateUserStart>(_createUserStart).call,
       TypedEpic<AppState, GetCurrentUserStart>(_getCurrentUserStart).call,
       TypedEpic<AppState, SignOutStart>(_signOutStart).call,
+      TypedEpic<AppState, LoginStart>(_loginStart).call,
     ])(actions, store);
   }
 
@@ -72,6 +74,16 @@ class AppEpics extends EpicClass<AppState> {
           .asyncMap((_) => authApi.signOut())
           .map((_) => const SignOut.successful())
           .onErrorReturnWith((Object error, StackTrace stackTrace) => SignOut.error(error, stackTrace));
+    });
+  }
+
+  Stream<AppAction> _loginStart(Stream<LoginStart> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((LoginStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) => authApi.login(email: action.email, password: action.password))
+          .map((AppUser user) => Login.successful(user))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => Login.error(error, stackTrace));
     });
   }
 }
