@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../actions/load_items.dart';
 import '../actions/set.dart';
+import '../actions/sign_out.dart';
 import '../models/app_state.dart';
 import '../models/app_user.dart';
 import '../models/photo.dart';
@@ -84,6 +85,43 @@ class _HomeState extends State<Home> {
                     appBar: AppBar(
                       title: const Text('Unsplash Gallery'),
                       centerTitle: true,
+                      actions: <Widget>[
+                        if (user != null)
+                          GestureDetector(
+                            onLongPress: () {
+                              showDialog<void>(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Sign out'),
+                                    content: const Text('Are you sure you want to sign out?'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text('Cancel'),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      TextButton(
+                                        child: const Text('Sign out'),
+                                        onPressed: () {
+                                          context.dispatch(const SignOut());
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: CircleAvatar(
+                              backgroundColor: Colors.amber,
+                              child: Text(
+                                user.displayName[0].toUpperCase(),
+                              ),
+                            ),
+                          )
+                      ],
                     ),
                     body: Column(
                       children: <Widget>[

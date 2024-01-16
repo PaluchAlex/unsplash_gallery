@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:redux/redux.dart';
 
 import '../actions/create_user.dart';
+import '../actions/get_current_user.dart';
 import '../actions/load_items.dart';
 import '../actions/set.dart';
+import '../actions/sign_out.dart';
 import '../models/app_state.dart';
 import '../models/photo.dart';
 
@@ -18,6 +20,8 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, LoadItemsError>(_loadItemsError).call,
       TypedReducer<AppState, SetQuery>(_setQuery).call,
       TypedReducer<AppState, CreateUserSuccessful>(_createUserSuccessful).call,
+      TypedReducer<AppState, GetCurrentUserSuccessful>(_getCurrentUserSuccessful).call,
+      TypedReducer<AppState, SignOutSuccessful>(_signOutSuccessful).call,
     ],
   )(state, action);
 }
@@ -48,4 +52,12 @@ AppState _loadItemsSuccessful(AppState state, LoadItemsSuccessful action) {
 
 AppState _createUserSuccessful(AppState state, CreateUserSuccessful action) {
   return state.copyWith(user: action.user);
+}
+
+AppState _getCurrentUserSuccessful(AppState state, GetCurrentUserSuccessful action) {
+  return state.copyWith(user: action.user);
+}
+
+AppState _signOutSuccessful(AppState state, SignOutSuccessful action) {
+  return state.copyWith(user: null);
 }
