@@ -6,7 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../actions/load_items.dart';
 import '../actions/set.dart';
-import '../actions/sign_out.dart';
 import '../models/app_state.dart';
 import '../models/app_user.dart';
 import '../models/photo.dart';
@@ -14,6 +13,7 @@ import 'containers/app_user_container.dart';
 import 'containers/is_loading_container.dart';
 import 'containers/photos_container.dart';
 import 'extensions.dart';
+import 'user_picture.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -88,39 +88,11 @@ class _HomeState extends State<Home> {
                       actions: <Widget>[
                         if (user != null)
                           GestureDetector(
-                            onLongPress: () {
-                              showDialog<void>(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: const Text('Sign out'),
-                                    content: const Text('Are you sure you want to sign out?'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        child: const Text('Cancel'),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                      ),
-                                      TextButton(
-                                        child: const Text('Sign out'),
-                                        onPressed: () {
-                                          context.dispatch(const SignOut());
-                                          Navigator.pop(context);
-                                        },
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                            onTap: () {
+                              Navigator.pushNamed(context, '/profile');
                             },
-                            child: CircleAvatar(
-                              backgroundColor: Colors.amber,
-                              child: Text(
-                                user.displayName[0].toUpperCase(),
-                              ),
-                            ),
-                          )
+                            child: const UserPicture(),
+                          ),
                       ],
                     ),
                     body: Column(

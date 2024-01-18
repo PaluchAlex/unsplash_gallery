@@ -2,6 +2,7 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../actions/app_action.dart';
+import '../actions/change_picture.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/load_items.dart';
@@ -27,6 +28,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, GetCurrentUserStart>(_getCurrentUserStart).call,
       TypedEpic<AppState, SignOutStart>(_signOutStart).call,
       TypedEpic<AppState, LoginStart>(_loginStart).call,
+      TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
     ])(actions, store);
   }
 
@@ -86,6 +88,16 @@ class AppEpics extends EpicClass<AppState> {
           .map((AppUser user) => Login.successful(user))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => Login.error(error, stackTrace))
           .doOnData(action.result);
+    });
+  }
+
+  Stream<AppAction> _changePictureStart(Stream<ChangePictureStart> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((ChangePictureStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) => authApi.changePicture(action.path))
+          .map((AppUser user) => ChangePicture.successful(user))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => ChangePicture.error(error, stackTrace));
     });
   }
 }

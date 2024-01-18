@@ -10,9 +10,9 @@ _$AppState$Impl _$$AppState$ImplFromJson(Map<String, dynamic> json) => _$AppStat
       user: json['user'] == null ? null : AppUser.fromJson(json['user'] as Map<String, dynamic>),
       query: json['query'] as String? ?? '',
       page: json['page'] as int? ?? 1,
-      photos:
-          (json['photos'] as List<dynamic>?)?.map((dynamic e) => Photo.fromJson(e as Map<String, dynamic>)).toList() ??
-              const <Photo>[],
+      photos: (json['photos'] as List<dynamic>?)?.map((dynamic e) => Photo.fromJson(e as Map<String, dynamic>)).toList
+            () ??
+          const <Photo>[],
       isLoading: json['isLoading'] as bool? ?? false,
     );
 

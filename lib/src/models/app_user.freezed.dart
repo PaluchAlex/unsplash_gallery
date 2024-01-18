@@ -20,6 +20,7 @@ AppUser _$AppUserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppUser {
+  String get uid => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get pictureUrl => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ mixin _$AppUser {
 abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) = _$AppUserCopyWithImpl<$Res, AppUser>;
   @useResult
-  $Res call({String email, String displayName, String? pictureUrl});
+  $Res call({String uid, String email, String displayName, String? pictureUrl});
 }
 
 /// @nodoc
@@ -48,11 +49,16 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser> implements $AppUserCopyW
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
     Object? email = null,
     Object? displayName = null,
     Object? pictureUrl = freezed,
   }) {
     return _then(_value.copyWith(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -75,7 +81,7 @@ abstract class _$$AppUser$ImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       __$$AppUser$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String displayName, String? pictureUrl});
+  $Res call({String uid, String email, String displayName, String? pictureUrl});
 }
 
 /// @nodoc
@@ -86,11 +92,16 @@ class __$$AppUser$ImplCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res, _$A
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
     Object? email = null,
     Object? displayName = null,
     Object? pictureUrl = freezed,
   }) {
     return _then(_$AppUser$Impl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -110,10 +121,12 @@ class __$$AppUser$ImplCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res, _$A
 /// @nodoc
 @JsonSerializable()
 class _$AppUser$Impl implements AppUser$ {
-  const _$AppUser$Impl({required this.email, required this.displayName, this.pictureUrl});
+  const _$AppUser$Impl({required this.uid, required this.email, required this.displayName, this.pictureUrl});
 
   factory _$AppUser$Impl.fromJson(Map<String, dynamic> json) => _$$AppUser$ImplFromJson(json);
 
+  @override
+  final String uid;
   @override
   final String email;
   @override
@@ -123,7 +136,7 @@ class _$AppUser$Impl implements AppUser$ {
 
   @override
   String toString() {
-    return 'AppUser(email: $email, displayName: $displayName, pictureUrl: $pictureUrl)';
+    return 'AppUser(uid: $uid, email: $email, displayName: $displayName, pictureUrl: $pictureUrl)';
   }
 
   @override
@@ -131,6 +144,7 @@ class _$AppUser$Impl implements AppUser$ {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppUser$Impl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.displayName, displayName) || other.displayName == displayName) &&
             (identical(other.pictureUrl, pictureUrl) || other.pictureUrl == pictureUrl));
@@ -138,7 +152,7 @@ class _$AppUser$Impl implements AppUser$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email, displayName, pictureUrl);
+  int get hashCode => Object.hash(runtimeType, uid, email, displayName, pictureUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -155,11 +169,16 @@ class _$AppUser$Impl implements AppUser$ {
 }
 
 abstract class AppUser$ implements AppUser {
-  const factory AppUser$({required final String email, required final String displayName, final String? pictureUrl}) =
-      _$AppUser$Impl;
+  const factory AppUser$(
+      {required final String uid,
+      required final String email,
+      required final String displayName,
+      final String? pictureUrl}) = _$AppUser$Impl;
 
   factory AppUser$.fromJson(Map<String, dynamic> json) = _$AppUser$Impl.fromJson;
 
+  @override
+  String get uid;
   @override
   String get email;
   @override
