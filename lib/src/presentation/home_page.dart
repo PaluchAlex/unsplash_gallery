@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
 
     /// load items when 2 screens of scroll remain
     if (!context.state.isLoading && offset > threshold) {
-      context.dispatch(const LoadItems());
+      context.dispatch(LoadItems(color: color));
     }
   }
 
@@ -63,6 +63,8 @@ class _HomeState extends State<Home> {
   //   //page = 1;
   //   items.clear();
   // }
+  String query = '';
+  String color = '';
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +110,10 @@ class _HomeState extends State<Home> {
                                     hintText: 'Search',
                                   ),
                                   onChanged: (String value) {
+                                    query = value;
                                     context
-                                      ..dispatch(SetQuery(value))
-                                      ..dispatch(const LoadItems());
+                                      ..dispatch(SetQuery(query))
+                                      ..dispatch(LoadItems(color: color));
                                   },
                                 ),
                               ),
@@ -118,7 +121,11 @@ class _HomeState extends State<Home> {
                             Expanded(
                               child: DropdownMenu<String>(
                                 onSelected: (String? value) {
-                                  //color = value ?? '';
+                                  final String localColor = value ?? '';
+                                  color = localColor;
+                                  context
+                                    ..dispatch(SetQuery(query))
+                                    ..dispatch(LoadItems(color: color));
                                   //resetContent();
                                   // loadItems();
                                 },

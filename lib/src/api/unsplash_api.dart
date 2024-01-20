@@ -35,6 +35,7 @@ class UnsplashApi {
         uri.replace(
           queryParameters: <String, String>{
             'page': '$page',
+            if (query.isEmpty && color.isNotEmpty) 'query': 'color',
             if (query.isNotEmpty) 'query': query,
             if (color.isNotEmpty) 'color': color,
           },
