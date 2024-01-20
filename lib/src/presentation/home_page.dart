@@ -64,7 +64,6 @@ class _HomeState extends State<Home> {
   //   items.clear();
   // }
   String query = '';
-  String color = '';
 
   @override
   Widget build(BuildContext context) {
@@ -164,24 +163,27 @@ class _HomeState extends State<Home> {
                                               photo.user.links;
                                               _launchURL(Uri.parse(photo.user.links.html));
                                             },
-                                            child: Image.network(
-                                              photo.urls.small,
-                                              //height: 445,
-                                              loadingBuilder:
-                                                  (BuildContext context, Widget widget, ImageChunkEvent? progress) {
-                                                if (progress == null) {
-                                                  return widget;
-                                                }
-                                                return SizedBox(
-                                                  height: 345,
-                                                  child: Center(
-                                                    child: CircularProgressIndicator(
-                                                      value: progress.cumulativeBytesLoaded /
-                                                          (progress.expectedTotalBytes ?? 1),
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: Image.network(
+                                                photo.urls.small,
+                                                //height: 445,
+                                                loadingBuilder:
+                                                    (BuildContext context, Widget widget, ImageChunkEvent? progress) {
+                                                  if (progress == null) {
+                                                    return widget;
+                                                  }
+                                                  return SizedBox(
+                                                    height: 345,
+                                                    child: Center(
+                                                      child: CircularProgressIndicator(
+                                                        value: progress.cumulativeBytesLoaded /
+                                                            (progress.expectedTotalBytes ?? 1),
+                                                      ),
                                                     ),
-                                                  ),
-                                                );
-                                              },
+                                                  );
+                                                },
+                                              ),
                                             ),
                                           ),
                                           Padding(
@@ -240,6 +242,8 @@ class _HomeState extends State<Home> {
       },
     );
   }
+
+  String color = '';
 }
 
 const List<String> allColors = <String>[
