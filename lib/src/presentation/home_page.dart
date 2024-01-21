@@ -59,11 +59,8 @@ class _HomeState extends State<Home> {
     }
   }
 
-  // void resetContent() {
-  //   //page = 1;
-  //   items.clear();
-  // }
   String query = '';
+  String color = '';
 
   @override
   Widget build(BuildContext context) {
@@ -163,6 +160,7 @@ class _HomeState extends State<Home> {
                                       /// the item
                                       return Column(
                                         children: <Widget>[
+                                          /// item image area
                                           InkWell(
                                             onTap: () {
                                               photo.user.links;
@@ -191,6 +189,8 @@ class _HomeState extends State<Home> {
                                               ),
                                             ),
                                           ),
+
+                                          /// item info area
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: ListTile(
@@ -249,8 +249,6 @@ class _HomeState extends State<Home> {
       },
     );
   }
-
-  String color = '';
 }
 
 const List<String> allColors = <String>[
