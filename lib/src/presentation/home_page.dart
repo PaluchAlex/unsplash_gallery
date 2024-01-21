@@ -98,6 +98,7 @@ class _HomeState extends State<Home> {
                     ),
                     body: Column(
                       children: <Widget>[
+                        /// search area
                         Row(
                           children: <Widget>[
                             Expanded(
@@ -140,12 +141,15 @@ class _HomeState extends State<Home> {
                             )
                           ],
                         ),
+
+                        /// items area
                         Expanded(
                           child: Builder(
                             builder: (BuildContext context) {
                               return CustomScrollView(
                                 controller: controller,
                                 slivers: <Widget>[
+                                  /// no items found case
                                   if (items.isEmpty && !isLoading)
                                     const SliverToBoxAdapter(
                                       child: Center(
@@ -156,6 +160,7 @@ class _HomeState extends State<Home> {
                                     delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
                                       final Photo photo = items[index];
 
+                                      /// the item
                                       return Column(
                                         children: <Widget>[
                                           InkWell(
@@ -214,6 +219,8 @@ class _HomeState extends State<Home> {
                                       );
                                     }, childCount: items.length),
                                   ),
+
+                                  /// circular progress indicator when is loading
                                   if (isLoading)
                                     const SliverToBoxAdapter(
                                       child: Padding(
