@@ -109,7 +109,7 @@ abstract class _$$Photo$ImplCopyWith<$Res> implements $PhotoCopyWith<$Res> {
   $PhotoUserCopyWith<$Res> get user;
 }
 
-/// @no doc
+/// @nodoc
 class __$$Photo$ImplCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res, _$Photo$Impl>
     implements _$$Photo$ImplCopyWith<$Res> {
   __$$Photo$ImplCopyWithImpl(_$Photo$Impl _value, $Res Function(_$Photo$Impl) _then) : super(_value, _then);

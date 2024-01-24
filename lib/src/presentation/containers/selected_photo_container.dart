@@ -5,18 +5,18 @@ import 'package:redux/redux.dart';
 import '../../models/app_state.dart';
 import '../../models/photo.dart';
 
-class PhotosContainer extends StatelessWidget {
-  const PhotosContainer({super.key, required this.builder});
+class SelectedPhotoContainer extends StatelessWidget {
+  const SelectedPhotoContainer({super.key, required this.builder});
 
-  final ViewModelBuilder<List<Photo>> builder;
+  final ViewModelBuilder<Photo> builder;
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, List<Photo>>(
-      builder: builder,
+    return StoreConnector<AppState, Photo>(
       converter: (Store<AppState> store) {
-        return store.state.photos;
+        return store.state.selectedPhoto!;
       },
+      builder: builder,
     );
   }
 }

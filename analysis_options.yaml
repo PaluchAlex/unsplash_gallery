@@ -23,6 +23,9 @@ analyzer:
     invalid_annotation_target: ignore
     deprecated_member_use_from_same_package: ignore
   exclude:
+    - "*/**/*.g.dart"
+    - "*/**/*.freezed.dart"
+    - "lib/firebase_options.dart"
     - "bin/cache/**"
     # Ignore protoc generated files
     - "dev/conductor/lib/proto/*"

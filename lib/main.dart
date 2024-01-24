@@ -19,6 +19,7 @@ import 'src/models/app_state.dart';
 import 'src/presentation/create_user.dart';
 import 'src/presentation/home_page.dart';
 import 'src/presentation/login_user.dart';
+import 'src/presentation/photo_page.dart';
 import 'src/presentation/profile_page.dart';
 import 'src/reducer/reducer.dart';
 
@@ -64,6 +65,7 @@ class Gallery extends StatelessWidget {
           '/createUser': (BuildContext context) => const CreateUserPage(),
           '/loginUser': (BuildContext context) => const LoginUserPage(),
           '/profile': (BuildContext context) => const ProfilePage(),
+          '/photo': (BuildContext context) => const PhotoPage(),
         },
       ),
     );

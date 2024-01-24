@@ -9,6 +9,7 @@ part 'app_state.g.dart';
 class AppState with _$AppState {
   const factory AppState({
     AppUser? user,
+    Photo? selectedPhoto,
     @Default('') String query,
     @Default(1) int page,
     @Default(<Photo>[]) List<Photo> photos,

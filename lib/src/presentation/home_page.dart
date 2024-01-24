@@ -154,70 +154,73 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                   SliverList(
-                                    delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-                                      final Photo photo = items[index];
+                                    delegate: SliverChildBuilderDelegate(
+                                      (BuildContext context, int index) {
+                                        final Photo photo = items[index];
 
-                                      /// the item
-                                      return Column(
-                                        children: <Widget>[
-                                          /// item image area
-                                          InkWell(
-                                            onTap: () {
-                                              photo.user.links;
-                                              _launchURL(Uri.parse(photo.user.links.html));
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.circular(20),
-                                              child: Image.network(
-                                                photo.urls.small,
-                                                //height: 445,
-                                                loadingBuilder:
-                                                    (BuildContext context, Widget widget, ImageChunkEvent? progress) {
-                                                  if (progress == null) {
-                                                    return widget;
-                                                  }
-                                                  return SizedBox(
-                                                    height: 345,
-                                                    child: Center(
-                                                      child: CircularProgressIndicator(
-                                                        value: progress.cumulativeBytesLoaded /
-                                                            (progress.expectedTotalBytes ?? 1),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ),
-
-                                          /// item info area
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: ListTile(
-                                              title: GestureDetector(
+                                        /// the item
+                                        return Padding(
+                                          padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+                                          child: Column(
+                                            children: <Widget>[
+                                              /// item image area
+                                              InkWell(
                                                 onTap: () {
-                                                  if (user != null) {
-                                                    if (kDebugMode) {
-                                                      print('user is: $user for movie: $photo');
-                                                    }
-                                                  } else {
-                                                    Navigator.pushNamed(context, '/createUser');
-                                                  }
+                                                  context.dispatch(SetSelectedPhoto(photo));
+                                                  Navigator.pushNamed(context, '/photo');
                                                 },
-                                                child: Row(
-                                                  children: <Widget>[
-                                                    Text('Likes: ${photo.likes}'),
-                                                    Expanded(child: Container()),
-                                                    Text('Author: ${photo.user.name}'),
-                                                  ],
+                                                child: ClipRRect(
+                                                  borderRadius: BorderRadius.circular(20),
+                                                  child: Image.network(
+                                                    photo.urls.small,
+                                                    //height: 445,
+                                                    loadingBuilder: (BuildContext context, Widget widget,
+                                                        ImageChunkEvent? progress) {
+                                                      if (progress == null) {
+                                                        return widget;
+                                                      }
+                                                      return SizedBox(
+                                                        height: 345,
+                                                        child: Center(
+                                                          child: CircularProgressIndicator(
+                                                            value: progress.cumulativeBytesLoaded /
+                                                                (progress.expectedTotalBytes ?? 1),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ),
-                                              subtitle: Center(child: Text(photo.description)),
-                                            ),
+
+                                              /// item info area
+                                              ListTile(
+                                                title: GestureDetector(
+                                                  onTap: () {
+                                                    _launchURL(Uri.parse(photo.user.links.html));
+                                                    if (user != null) {
+                                                      if (kDebugMode) {
+                                                        print('user is: $user for movie: $photo');
+                                                      }
+                                                    } else {
+                                                      Navigator.pushNamed(context, '/createUser');
+                                                    }
+                                                  },
+                                                  child: Row(
+                                                    children: <Widget>[
+                                                      Text('Likes: ${photo.likes}'),
+                                                      Expanded(child: Container()),
+                                                      Text('Author: ${photo.user.name}'),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      );
-                                    }, childCount: items.length),
+                                        );
+                                      },
+                                      childCount: items.length,
+                                    ),
                                   ),
 
                                   /// circular progress indicator when is loading
