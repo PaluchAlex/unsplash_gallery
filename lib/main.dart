@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -32,8 +33,9 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseStorage storage = FirebaseStorage.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final AuthApi authApi = AuthApi(auth: auth, storage: storage);
-  final UnsplashApi api = UnsplashApi(client: client, accessKey: key);
+  final UnsplashApi api = UnsplashApi(firestore, client: client, accessKey: key);
   final AppEpics appEpics = AppEpics(api, authApi);
   final Store<AppState> store = Store<AppState>(
     reducer,

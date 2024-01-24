@@ -5,6 +5,7 @@ import '../actions/app_action.dart';
 import '../actions/change_picture.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
+import '../actions/get_reviews.dart';
 import '../actions/load_items.dart';
 import '../actions/login.dart';
 import '../actions/sign_out.dart';
@@ -13,6 +14,7 @@ import '../api/unsplash_api.dart';
 import '../models/app_state.dart';
 import '../models/app_user.dart';
 import '../models/photo.dart';
+import '../models/review.dart';
 
 class AppEpics extends EpicClass<AppState> {
   AppEpics(this.api, this.authApi);
@@ -29,6 +31,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, SignOutStart>(_signOutStart).call,
       TypedEpic<AppState, LoginStart>(_loginStart).call,
       TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
+      TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
     ])(actions, store);
   }
 
@@ -99,5 +102,17 @@ class AppEpics extends EpicClass<AppState> {
           .map((AppUser user) => ChangePicture.successful(user))
           .onErrorReturnWith((Object error, StackTrace stackTrace) => ChangePicture.error(error, stackTrace));
     });
+  }
+
+  Stream<AppAction> _getReviewsStart(Stream<GetReviewsStart> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap(
+      (GetReviewsStart action) {
+        return Stream<void>.value(null)
+            .asyncMap((_) => api.getReviews(action.photoId))
+            .map((List<Review> reviews) => GetReviews.successful(reviews))
+            .onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
+      },
+    );
   }
 }

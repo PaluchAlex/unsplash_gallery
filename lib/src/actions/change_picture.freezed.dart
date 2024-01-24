@@ -64,12 +64,14 @@ mixin _$ChangePicture {
 
 /// @nodoc
 abstract class $ChangePictureCopyWith<$Res> {
-  factory $ChangePictureCopyWith(ChangePicture value, $Res Function(ChangePicture) then) =
+  factory $ChangePictureCopyWith(
+          ChangePicture value, $Res Function(ChangePicture) then) =
       _$ChangePictureCopyWithImpl<$Res, ChangePicture>;
 }
 
 /// @nodoc
-class _$ChangePictureCopyWithImpl<$Res, $Val extends ChangePicture> implements $ChangePictureCopyWith<$Res> {
+class _$ChangePictureCopyWithImpl<$Res, $Val extends ChangePicture>
+    implements $ChangePictureCopyWith<$Res> {
   _$ChangePictureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -80,17 +82,19 @@ class _$ChangePictureCopyWithImpl<$Res, $Val extends ChangePicture> implements $
 
 /// @nodoc
 abstract class _$$ChangePictureStartImplCopyWith<$Res> {
-  factory _$$ChangePictureStartImplCopyWith(
-          _$ChangePictureStartImpl value, $Res Function(_$ChangePictureStartImpl) then) =
+  factory _$$ChangePictureStartImplCopyWith(_$ChangePictureStartImpl value,
+          $Res Function(_$ChangePictureStartImpl) then) =
       __$$ChangePictureStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String path});
 }
 
 /// @nodoc
-class __$$ChangePictureStartImplCopyWithImpl<$Res> extends _$ChangePictureCopyWithImpl<$Res, _$ChangePictureStartImpl>
+class __$$ChangePictureStartImplCopyWithImpl<$Res>
+    extends _$ChangePictureCopyWithImpl<$Res, _$ChangePictureStartImpl>
     implements _$$ChangePictureStartImplCopyWith<$Res> {
-  __$$ChangePictureStartImplCopyWithImpl(_$ChangePictureStartImpl _value, $Res Function(_$ChangePictureStartImpl) _then)
+  __$$ChangePictureStartImplCopyWithImpl(_$ChangePictureStartImpl _value,
+      $Res Function(_$ChangePictureStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +139,8 @@ class _$ChangePictureStartImpl implements ChangePictureStart {
   @override
   @pragma('vm:prefer-inline')
   _$$ChangePictureStartImplCopyWith<_$ChangePictureStartImpl> get copyWith =>
-      __$$ChangePictureStartImplCopyWithImpl<_$ChangePictureStartImpl>(this, _$identity);
+      __$$ChangePictureStartImplCopyWithImpl<_$ChangePictureStartImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -207,17 +212,20 @@ class _$ChangePictureStartImpl implements ChangePictureStart {
 }
 
 abstract class ChangePictureStart implements ChangePicture {
-  const factory ChangePictureStart(final String path) = _$ChangePictureStartImpl;
+  const factory ChangePictureStart(final String path) =
+      _$ChangePictureStartImpl;
 
   String get path;
   @JsonKey(ignore: true)
-  _$$ChangePictureStartImplCopyWith<_$ChangePictureStartImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$ChangePictureStartImplCopyWith<_$ChangePictureStartImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ChangePictureSuccessfulImplCopyWith<$Res> {
   factory _$$ChangePictureSuccessfulImplCopyWith(
-          _$ChangePictureSuccessfulImpl value, $Res Function(_$ChangePictureSuccessfulImpl) then) =
+          _$ChangePictureSuccessfulImpl value,
+          $Res Function(_$ChangePictureSuccessfulImpl) then) =
       __$$ChangePictureSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AppUser user});
@@ -230,7 +238,8 @@ class __$$ChangePictureSuccessfulImplCopyWithImpl<$Res>
     extends _$ChangePictureCopyWithImpl<$Res, _$ChangePictureSuccessfulImpl>
     implements _$$ChangePictureSuccessfulImplCopyWith<$Res> {
   __$$ChangePictureSuccessfulImplCopyWithImpl(
-      _$ChangePictureSuccessfulImpl _value, $Res Function(_$ChangePictureSuccessfulImpl) _then)
+      _$ChangePictureSuccessfulImpl _value,
+      $Res Function(_$ChangePictureSuccessfulImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -282,8 +291,9 @@ class _$ChangePictureSuccessfulImpl implements ChangePictureSuccessful {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChangePictureSuccessfulImplCopyWith<_$ChangePictureSuccessfulImpl> get copyWith =>
-      __$$ChangePictureSuccessfulImplCopyWithImpl<_$ChangePictureSuccessfulImpl>(this, _$identity);
+  _$$ChangePictureSuccessfulImplCopyWith<_$ChangePictureSuccessfulImpl>
+      get copyWith => __$$ChangePictureSuccessfulImplCopyWithImpl<
+          _$ChangePictureSuccessfulImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,27 +365,30 @@ class _$ChangePictureSuccessfulImpl implements ChangePictureSuccessful {
 }
 
 abstract class ChangePictureSuccessful implements ChangePicture {
-  const factory ChangePictureSuccessful(final AppUser user) = _$ChangePictureSuccessfulImpl;
+  const factory ChangePictureSuccessful(final AppUser user) =
+      _$ChangePictureSuccessfulImpl;
 
   AppUser get user;
   @JsonKey(ignore: true)
-  _$$ChangePictureSuccessfulImplCopyWith<_$ChangePictureSuccessfulImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChangePictureSuccessfulImplCopyWith<_$ChangePictureSuccessfulImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ChangePictureErrorImplCopyWith<$Res> {
-  factory _$$ChangePictureErrorImplCopyWith(
-          _$ChangePictureErrorImpl value, $Res Function(_$ChangePictureErrorImpl) then) =
+  factory _$$ChangePictureErrorImplCopyWith(_$ChangePictureErrorImpl value,
+          $Res Function(_$ChangePictureErrorImpl) then) =
       __$$ChangePictureErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$ChangePictureErrorImplCopyWithImpl<$Res> extends _$ChangePictureCopyWithImpl<$Res, _$ChangePictureErrorImpl>
+class __$$ChangePictureErrorImplCopyWithImpl<$Res>
+    extends _$ChangePictureCopyWithImpl<$Res, _$ChangePictureErrorImpl>
     implements _$$ChangePictureErrorImplCopyWith<$Res> {
-  __$$ChangePictureErrorImplCopyWithImpl(_$ChangePictureErrorImpl _value, $Res Function(_$ChangePictureErrorImpl) _then)
+  __$$ChangePictureErrorImplCopyWithImpl(_$ChangePictureErrorImpl _value,
+      $Res Function(_$ChangePictureErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -415,17 +428,20 @@ class _$ChangePictureErrorImpl implements ChangePictureError {
         (other.runtimeType == runtimeType &&
             other is _$ChangePictureErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) ||
+                other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ChangePictureErrorImplCopyWith<_$ChangePictureErrorImpl> get copyWith =>
-      __$$ChangePictureErrorImplCopyWithImpl<_$ChangePictureErrorImpl>(this, _$identity);
+      __$$ChangePictureErrorImplCopyWithImpl<_$ChangePictureErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -497,10 +513,13 @@ class _$ChangePictureErrorImpl implements ChangePictureError {
 }
 
 abstract class ChangePictureError implements ChangePicture, ErrorAction {
-  const factory ChangePictureError(final Object error, final StackTrace stackTrace) = _$ChangePictureErrorImpl;
+  const factory ChangePictureError(
+          final Object error, final StackTrace stackTrace) =
+      _$ChangePictureErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$ChangePictureErrorImplCopyWith<_$ChangePictureErrorImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$ChangePictureErrorImplCopyWith<_$ChangePictureErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

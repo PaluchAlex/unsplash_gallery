@@ -24,26 +24,37 @@ mixin _$AppState {
   Photo? get selectedPhoto => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  List<Review> get reviews => throw _privateConstructorUsedError;
   List<Photo> get photos => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith => throw _privateConstructorUsedError;
+  $AppStateCopyWith<AppState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
+      _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({AppUser? user, Photo? selectedPhoto, String query, int page, List<Photo> photos, bool isLoading});
+  $Res call(
+      {AppUser? user,
+      Photo? selectedPhoto,
+      String query,
+      int page,
+      List<Review> reviews,
+      List<Photo> photos,
+      bool isLoading});
 
   $AppUserCopyWith<$Res>? get user;
   $PhotoCopyWith<$Res>? get selectedPhoto;
 }
 
 /// @nodoc
-class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
+class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
+    implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -58,6 +69,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
     Object? selectedPhoto = freezed,
     Object? query = null,
     Object? page = null,
+    Object? reviews = null,
     Object? photos = null,
     Object? isLoading = null,
   }) {
@@ -78,6 +90,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      reviews: null == reviews
+          ? _value.reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
+              as List<Review>,
       photos: null == photos
           ? _value.photos
           : photos // ignore: cast_nullable_to_non_nullable
@@ -115,12 +131,21 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
 }
 
 /// @nodoc
-abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$AppState$ImplCopyWith(_$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
+abstract class _$$AppState$ImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppState$ImplCopyWith(
+          _$AppState$Impl value, $Res Function(_$AppState$Impl) then) =
       __$$AppState$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AppUser? user, Photo? selectedPhoto, String query, int page, List<Photo> photos, bool isLoading});
+  $Res call(
+      {AppUser? user,
+      Photo? selectedPhoto,
+      String query,
+      int page,
+      List<Review> reviews,
+      List<Photo> photos,
+      bool isLoading});
 
   @override
   $AppUserCopyWith<$Res>? get user;
@@ -129,9 +154,12 @@ abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
+class __$$AppState$ImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppState$Impl>
     implements _$$AppState$ImplCopyWith<$Res> {
-  __$$AppState$ImplCopyWithImpl(_$AppState$Impl _value, $Res Function(_$AppState$Impl) _then) : super(_value, _then);
+  __$$AppState$ImplCopyWithImpl(
+      _$AppState$Impl _value, $Res Function(_$AppState$Impl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -140,6 +168,7 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
     Object? selectedPhoto = freezed,
     Object? query = null,
     Object? page = null,
+    Object? reviews = null,
     Object? photos = null,
     Object? isLoading = null,
   }) {
@@ -160,6 +189,10 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      reviews: null == reviews
+          ? _value._reviews
+          : reviews // ignore: cast_nullable_to_non_nullable
+              as List<Review>,
       photos: null == photos
           ? _value._photos
           : photos // ignore: cast_nullable_to_non_nullable
@@ -180,11 +213,14 @@ class _$AppState$Impl implements AppState$ {
       this.selectedPhoto,
       this.query = '',
       this.page = 1,
+      final List<Review> reviews = const <Review>[],
       final List<Photo> photos = const <Photo>[],
       this.isLoading = false})
-      : _photos = photos;
+      : _reviews = reviews,
+        _photos = photos;
 
-  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
+  factory _$AppState$Impl.fromJson(Map<String, dynamic> json) =>
+      _$$AppState$ImplFromJson(json);
 
   @override
   final AppUser? user;
@@ -196,6 +232,15 @@ class _$AppState$Impl implements AppState$ {
   @override
   @JsonKey()
   final int page;
+  final List<Review> _reviews;
+  @override
+  @JsonKey()
+  List<Review> get reviews {
+    if (_reviews is EqualUnmodifiableListView) return _reviews;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reviews);
+  }
+
   final List<Photo> _photos;
   @override
   @JsonKey()
@@ -211,7 +256,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(user: $user, selectedPhoto: $selectedPhoto, query: $query, page: $page, photos: $photos, isLoading: $isLoading)';
+    return 'AppState(user: $user, selectedPhoto: $selectedPhoto, query: $query, page: $page, reviews: $reviews, photos: $photos, isLoading: $isLoading)';
   }
 
   @override
@@ -220,17 +265,27 @@ class _$AppState$Impl implements AppState$ {
         (other.runtimeType == runtimeType &&
             other is _$AppState$Impl &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.selectedPhoto, selectedPhoto) || other.selectedPhoto == selectedPhoto) &&
+            (identical(other.selectedPhoto, selectedPhoto) ||
+                other.selectedPhoto == selectedPhoto) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.page, page) || other.page == page) &&
+            const DeepCollectionEquality().equals(other._reviews, _reviews) &&
             const DeepCollectionEquality().equals(other._photos, _photos) &&
-            (identical(other.isLoading, isLoading) || other.isLoading == isLoading));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, user, selectedPhoto, query, page, const DeepCollectionEquality().hash(_photos), isLoading);
+      runtimeType,
+      user,
+      selectedPhoto,
+      query,
+      page,
+      const DeepCollectionEquality().hash(_reviews),
+      const DeepCollectionEquality().hash(_photos),
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -252,10 +307,12 @@ abstract class AppState$ implements AppState {
       final Photo? selectedPhoto,
       final String query,
       final int page,
+      final List<Review> reviews,
       final List<Photo> photos,
       final bool isLoading}) = _$AppState$Impl;
 
-  factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$Impl.fromJson;
+  factory AppState$.fromJson(Map<String, dynamic> json) =
+      _$AppState$Impl.fromJson;
 
   @override
   AppUser? get user;
@@ -266,10 +323,13 @@ abstract class AppState$ implements AppState {
   @override
   int get page;
   @override
+  List<Review> get reviews;
+  @override
   List<Photo> get photos;
   @override
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$AppState$ImplCopyWith<_$AppState$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

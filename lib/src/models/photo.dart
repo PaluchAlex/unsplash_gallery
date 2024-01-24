@@ -10,6 +10,7 @@ part 'photo.g.dart';
 @freezed
 class Photo with _$Photo {
   const factory Photo({
+    required int id,
     required PhotoUrls urls,
     @Default('') @JsonKey(name: 'alt_description') String description,
     required int likes,

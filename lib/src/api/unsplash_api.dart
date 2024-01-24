@@ -1,16 +1,19 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart';
 
 import '../models/photo.dart';
+import '../models/review.dart';
 
 class UnsplashApi {
-  UnsplashApi({required String? accessKey, required Client client})
+  UnsplashApi(this._firestore, {required String? accessKey, required Client client})
       : _accessKey = accessKey,
         _client = client;
 
   final String? _accessKey;
   final Client _client;
+  final FirebaseFirestore _firestore;
 
   Future<List<Photo>> loadItems(int page, {String query = '', String color = ''}) async {
     if (query.isEmpty && color.isEmpty) {
@@ -59,5 +62,15 @@ class UnsplashApi {
       }
     }
     return <Photo>[];
+  }
+  Future<List<Review>> getReviews(int photoId) async {
+    final QuerySnapshot<Map<String, dynamic>> snapshot = await _firestore
+        .collection('movies/$photoId/reviews') //
+        .orderBy('createdAt', descending: true)
+        .get();
+
+    return snapshot.docs //
+        .map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => Review.fromJson(doc.data()))
+        .toList();
   }
 }

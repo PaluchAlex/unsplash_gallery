@@ -19,18 +19,21 @@ mixin _$SetQuery {
   String get query => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetQueryCopyWith<SetQuery> get copyWith => throw _privateConstructorUsedError;
+  $SetQueryCopyWith<SetQuery> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetQueryCopyWith<$Res> {
-  factory $SetQueryCopyWith(SetQuery value, $Res Function(SetQuery) then) = _$SetQueryCopyWithImpl<$Res, SetQuery>;
+  factory $SetQueryCopyWith(SetQuery value, $Res Function(SetQuery) then) =
+      _$SetQueryCopyWithImpl<$Res, SetQuery>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery> implements $SetQueryCopyWith<$Res> {
+class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery>
+    implements $SetQueryCopyWith<$Res> {
   _$SetQueryCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -53,8 +56,10 @@ class _$SetQueryCopyWithImpl<$Res, $Val extends SetQuery> implements $SetQueryCo
 }
 
 /// @nodoc
-abstract class _$$SetQuery$ImplCopyWith<$Res> implements $SetQueryCopyWith<$Res> {
-  factory _$$SetQuery$ImplCopyWith(_$SetQuery$Impl value, $Res Function(_$SetQuery$Impl) then) =
+abstract class _$$SetQuery$ImplCopyWith<$Res>
+    implements $SetQueryCopyWith<$Res> {
+  factory _$$SetQuery$ImplCopyWith(
+          _$SetQuery$Impl value, $Res Function(_$SetQuery$Impl) then) =
       __$$SetQuery$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -62,9 +67,12 @@ abstract class _$$SetQuery$ImplCopyWith<$Res> implements $SetQueryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetQuery$ImplCopyWithImpl<$Res> extends _$SetQueryCopyWithImpl<$Res, _$SetQuery$Impl>
+class __$$SetQuery$ImplCopyWithImpl<$Res>
+    extends _$SetQueryCopyWithImpl<$Res, _$SetQuery$Impl>
     implements _$$SetQuery$ImplCopyWith<$Res> {
-  __$$SetQuery$ImplCopyWithImpl(_$SetQuery$Impl _value, $Res Function(_$SetQuery$Impl) _then) : super(_value, _then);
+  __$$SetQuery$ImplCopyWithImpl(
+      _$SetQuery$Impl _value, $Res Function(_$SetQuery$Impl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -118,7 +126,8 @@ abstract class SetQuery$ implements SetQuery {
   String get query;
   @override
   @JsonKey(ignore: true)
-  _$$SetQuery$ImplCopyWith<_$SetQuery$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$SetQuery$ImplCopyWith<_$SetQuery$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -126,12 +135,14 @@ mixin _$SetSelectedPhoto {
   Photo get photo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetSelectedPhotoCopyWith<SetSelectedPhoto> get copyWith => throw _privateConstructorUsedError;
+  $SetSelectedPhotoCopyWith<SetSelectedPhoto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetSelectedPhotoCopyWith<$Res> {
-  factory $SetSelectedPhotoCopyWith(SetSelectedPhoto value, $Res Function(SetSelectedPhoto) then) =
+  factory $SetSelectedPhotoCopyWith(
+          SetSelectedPhoto value, $Res Function(SetSelectedPhoto) then) =
       _$SetSelectedPhotoCopyWithImpl<$Res, SetSelectedPhoto>;
   @useResult
   $Res call({Photo photo});
@@ -140,7 +151,8 @@ abstract class $SetSelectedPhotoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetSelectedPhotoCopyWithImpl<$Res, $Val extends SetSelectedPhoto> implements $SetSelectedPhotoCopyWith<$Res> {
+class _$SetSelectedPhotoCopyWithImpl<$Res, $Val extends SetSelectedPhoto>
+    implements $SetSelectedPhotoCopyWith<$Res> {
   _$SetSelectedPhotoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -171,8 +183,10 @@ class _$SetSelectedPhotoCopyWithImpl<$Res, $Val extends SetSelectedPhoto> implem
 }
 
 /// @nodoc
-abstract class _$$SetSelectedPhoto$ImplCopyWith<$Res> implements $SetSelectedPhotoCopyWith<$Res> {
-  factory _$$SetSelectedPhoto$ImplCopyWith(_$SetSelectedPhoto$Impl value, $Res Function(_$SetSelectedPhoto$Impl) then) =
+abstract class _$$SetSelectedPhoto$ImplCopyWith<$Res>
+    implements $SetSelectedPhotoCopyWith<$Res> {
+  factory _$$SetSelectedPhoto$ImplCopyWith(_$SetSelectedPhoto$Impl value,
+          $Res Function(_$SetSelectedPhoto$Impl) then) =
       __$$SetSelectedPhoto$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -183,9 +197,11 @@ abstract class _$$SetSelectedPhoto$ImplCopyWith<$Res> implements $SetSelectedPho
 }
 
 /// @nodoc
-class __$$SetSelectedPhoto$ImplCopyWithImpl<$Res> extends _$SetSelectedPhotoCopyWithImpl<$Res, _$SetSelectedPhoto$Impl>
+class __$$SetSelectedPhoto$ImplCopyWithImpl<$Res>
+    extends _$SetSelectedPhotoCopyWithImpl<$Res, _$SetSelectedPhoto$Impl>
     implements _$$SetSelectedPhoto$ImplCopyWith<$Res> {
-  __$$SetSelectedPhoto$ImplCopyWithImpl(_$SetSelectedPhoto$Impl _value, $Res Function(_$SetSelectedPhoto$Impl) _then)
+  __$$SetSelectedPhoto$ImplCopyWithImpl(_$SetSelectedPhoto$Impl _value,
+      $Res Function(_$SetSelectedPhoto$Impl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -230,7 +246,8 @@ class _$SetSelectedPhoto$Impl implements SetSelectedPhoto$ {
   @override
   @pragma('vm:prefer-inline')
   _$$SetSelectedPhoto$ImplCopyWith<_$SetSelectedPhoto$Impl> get copyWith =>
-      __$$SetSelectedPhoto$ImplCopyWithImpl<_$SetSelectedPhoto$Impl>(this, _$identity);
+      __$$SetSelectedPhoto$ImplCopyWithImpl<_$SetSelectedPhoto$Impl>(
+          this, _$identity);
 }
 
 abstract class SetSelectedPhoto$ implements SetSelectedPhoto {
@@ -240,5 +257,6 @@ abstract class SetSelectedPhoto$ implements SetSelectedPhoto {
   Photo get photo;
   @override
   @JsonKey(ignore: true)
-  _$$SetSelectedPhoto$ImplCopyWith<_$SetSelectedPhoto$Impl> get copyWith => throw _privateConstructorUsedError;
+  _$$SetSelectedPhoto$ImplCopyWith<_$SetSelectedPhoto$Impl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../actions/get_reviews.dart';
 import '../actions/load_items.dart';
 import '../actions/set.dart';
 import '../models/app_state.dart';
@@ -167,7 +168,9 @@ class _HomeState extends State<Home> {
                                               /// item image area
                                               InkWell(
                                                 onTap: () {
-                                                  context.dispatch(SetSelectedPhoto(photo));
+                                                  context
+                                                    ..dispatch(SetSelectedPhoto(photo))
+                                                    ..dispatch(GetReviews(photo.id));
                                                   Navigator.pushNamed(context, '/photo');
                                                 },
                                                 child: ClipRRect(
@@ -203,7 +206,7 @@ class _HomeState extends State<Home> {
                                                       _launchURL(Uri.parse(photo.user.links.html));
                                                       if (user != null) {
                                                         if (kDebugMode) {
-                                                          print('user is: $user for movie: $photo');
+                                                          print('user is: $user for photo: $photo');
                                                         }
                                                       } else {
                                                         Navigator.pushNamed(context, '/createUser');
