@@ -160,8 +160,9 @@ class _HomeState extends State<Home> {
 
                                         /// the item
                                         return Padding(
-                                          padding: const EdgeInsets.only(left: 8, right: 8),
-                                          child: Column(
+                                          padding: const EdgeInsets.all(8),
+                                          child: Stack(
+                                            alignment: AlignmentDirectional.bottomCenter,
                                             children: <Widget>[
                                               /// item image area
                                               InkWell(
@@ -194,45 +195,69 @@ class _HomeState extends State<Home> {
                                               ),
 
                                               /// item info area
-                                              ListTile(
-                                                title: GestureDetector(
-                                                  onTap: () {
-                                                    _launchURL(Uri.parse(photo.user.links.html));
-                                                    if (user != null) {
-                                                      if (kDebugMode) {
-                                                        print('user is: $user for movie: $photo');
+                                              Align(
+                                                alignment: Alignment.bottomCenter,
+                                                child: ListTile(
+                                                  title: GestureDetector(
+                                                    onTap: () {
+                                                      _launchURL(Uri.parse(photo.user.links.html));
+                                                      if (user != null) {
+                                                        if (kDebugMode) {
+                                                          print('user is: $user for movie: $photo');
+                                                        }
+                                                      } else {
+                                                        Navigator.pushNamed(context, '/createUser');
                                                       }
-                                                    } else {
-                                                      Navigator.pushNamed(context, '/createUser');
-                                                    }
-                                                  },
-                                                  child: Row(
-                                                    children: <Widget>[
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          style: const TextStyle(color: Colors.pink,
-                                                          fontSize: 18),
-                                                          children: <InlineSpan>[
-                                                            WidgetSpan(
-                                                              child: Icon(
-                                                                Icons.favorite,
-                                                                color: Colors.pink,
-                                                                size: 20.0,
-                                                                semanticLabel: '${photo.likes} Likes',
+                                                    },
+                                                    child: Align(
+                                                      alignment: Alignment.bottomCenter,
+                                                      child: Row(
+                                                        children: <Widget>[
+                                                          Container(
+                                                            padding: const EdgeInsets.all(5.0),
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: const BorderRadius.all(Radius.circular(14)),
+                                                              color: const Color(0xFFFFFFFF).withOpacity(0.5),
+
+                                                            ),
+                                                            child: RichText(
+                                                              text: TextSpan(
+                                                                style: const TextStyle(color: Colors.pink,
+                                                                fontSize: 18),
+                                                                children: <InlineSpan>[
+                                                                  WidgetSpan(
+                                                                    child: Icon(
+                                                                      Icons.favorite,
+                                                                      color: Colors.pink,
+                                                                      size: 20.0,
+                                                                      semanticLabel: '${photo.likes} Likes',
+                                                                    ),
+                                                                  ),
+                                                                  TextSpan(
+
+                                                                    text: '${photo.likes}',
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                            TextSpan(
+                                                          ),
+                                                          Expanded(child: Container()),
+                                                          Container(
+                                                            padding: const EdgeInsets.all(5.0),
+                                                            decoration: BoxDecoration(
+                                                              borderRadius: const BorderRadius.all(Radius.circular(14)),
+                                                              color: const Color(0xFFFFFFFF).withOpacity(0.5),
 
-                                                              text: '${photo.likes}',
                                                             ),
-                                                          ],
-                                                        ),
+                                                            child: Text(
+                                                                style: const TextStyle(fontSize: 18),
+                                                                photo.user.name.length > 30
+                                                                ? '@${photo.user.name.substring(0, 30)}...'
+                                                                : '@${photo.user.name}',),
+                                                          ),
+                                                        ],
                                                       ),
-                                                      Expanded(child: Container()),
-                                                      Text(photo.user.name.length > 30
-                                                          ? '${photo.user.name.substring(0, 30)}...'
-                                                          : photo.user.name),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
