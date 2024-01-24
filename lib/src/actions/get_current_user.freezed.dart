@@ -64,14 +64,12 @@ mixin _$GetCurrentUser {
 
 /// @nodoc
 abstract class $GetCurrentUserCopyWith<$Res> {
-  factory $GetCurrentUserCopyWith(
-          GetCurrentUser value, $Res Function(GetCurrentUser) then) =
+  factory $GetCurrentUserCopyWith(GetCurrentUser value, $Res Function(GetCurrentUser) then) =
       _$GetCurrentUserCopyWithImpl<$Res, GetCurrentUser>;
 }
 
 /// @nodoc
-class _$GetCurrentUserCopyWithImpl<$Res, $Val extends GetCurrentUser>
-    implements $GetCurrentUserCopyWith<$Res> {
+class _$GetCurrentUserCopyWithImpl<$Res, $Val extends GetCurrentUser> implements $GetCurrentUserCopyWith<$Res> {
   _$GetCurrentUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -82,8 +80,8 @@ class _$GetCurrentUserCopyWithImpl<$Res, $Val extends GetCurrentUser>
 
 /// @nodoc
 abstract class _$$GetCurrentUserStartImplCopyWith<$Res> {
-  factory _$$GetCurrentUserStartImplCopyWith(_$GetCurrentUserStartImpl value,
-          $Res Function(_$GetCurrentUserStartImpl) then) =
+  factory _$$GetCurrentUserStartImplCopyWith(
+          _$GetCurrentUserStartImpl value, $Res Function(_$GetCurrentUserStartImpl) then) =
       __$$GetCurrentUserStartImplCopyWithImpl<$Res>;
 }
 
@@ -91,8 +89,8 @@ abstract class _$$GetCurrentUserStartImplCopyWith<$Res> {
 class __$$GetCurrentUserStartImplCopyWithImpl<$Res>
     extends _$GetCurrentUserCopyWithImpl<$Res, _$GetCurrentUserStartImpl>
     implements _$$GetCurrentUserStartImplCopyWith<$Res> {
-  __$$GetCurrentUserStartImplCopyWithImpl(_$GetCurrentUserStartImpl _value,
-      $Res Function(_$GetCurrentUserStartImpl) _then)
+  __$$GetCurrentUserStartImplCopyWithImpl(
+      _$GetCurrentUserStartImpl _value, $Res Function(_$GetCurrentUserStartImpl) _then)
       : super(_value, _then);
 }
 
@@ -108,9 +106,7 @@ class _$GetCurrentUserStartImpl implements GetCurrentUserStart {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetCurrentUserStartImpl);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$GetCurrentUserStartImpl);
   }
 
   @override
@@ -192,8 +188,7 @@ abstract class GetCurrentUserStart implements GetCurrentUser {
 /// @nodoc
 abstract class _$$GetCurrentUserSuccessfulImplCopyWith<$Res> {
   factory _$$GetCurrentUserSuccessfulImplCopyWith(
-          _$GetCurrentUserSuccessfulImpl value,
-          $Res Function(_$GetCurrentUserSuccessfulImpl) then) =
+          _$GetCurrentUserSuccessfulImpl value, $Res Function(_$GetCurrentUserSuccessfulImpl) then) =
       __$$GetCurrentUserSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AppUser? user});
@@ -206,8 +201,7 @@ class __$$GetCurrentUserSuccessfulImplCopyWithImpl<$Res>
     extends _$GetCurrentUserCopyWithImpl<$Res, _$GetCurrentUserSuccessfulImpl>
     implements _$$GetCurrentUserSuccessfulImplCopyWith<$Res> {
   __$$GetCurrentUserSuccessfulImplCopyWithImpl(
-      _$GetCurrentUserSuccessfulImpl _value,
-      $Res Function(_$GetCurrentUserSuccessfulImpl) _then)
+      _$GetCurrentUserSuccessfulImpl _value, $Res Function(_$GetCurrentUserSuccessfulImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -263,9 +257,8 @@ class _$GetCurrentUserSuccessfulImpl implements GetCurrentUserSuccessful {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetCurrentUserSuccessfulImplCopyWith<_$GetCurrentUserSuccessfulImpl>
-      get copyWith => __$$GetCurrentUserSuccessfulImplCopyWithImpl<
-          _$GetCurrentUserSuccessfulImpl>(this, _$identity);
+  _$$GetCurrentUserSuccessfulImplCopyWith<_$GetCurrentUserSuccessfulImpl> get copyWith =>
+      __$$GetCurrentUserSuccessfulImplCopyWithImpl<_$GetCurrentUserSuccessfulImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -337,19 +330,18 @@ class _$GetCurrentUserSuccessfulImpl implements GetCurrentUserSuccessful {
 }
 
 abstract class GetCurrentUserSuccessful implements GetCurrentUser {
-  const factory GetCurrentUserSuccessful(final AppUser? user) =
-      _$GetCurrentUserSuccessfulImpl;
+  const factory GetCurrentUserSuccessful(final AppUser? user) = _$GetCurrentUserSuccessfulImpl;
 
   AppUser? get user;
   @JsonKey(ignore: true)
-  _$$GetCurrentUserSuccessfulImplCopyWith<_$GetCurrentUserSuccessfulImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GetCurrentUserSuccessfulImplCopyWith<_$GetCurrentUserSuccessfulImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetCurrentUserErrorImplCopyWith<$Res> {
-  factory _$$GetCurrentUserErrorImplCopyWith(_$GetCurrentUserErrorImpl value,
-          $Res Function(_$GetCurrentUserErrorImpl) then) =
+  factory _$$GetCurrentUserErrorImplCopyWith(
+          _$GetCurrentUserErrorImpl value, $Res Function(_$GetCurrentUserErrorImpl) then) =
       __$$GetCurrentUserErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
@@ -359,8 +351,8 @@ abstract class _$$GetCurrentUserErrorImplCopyWith<$Res> {
 class __$$GetCurrentUserErrorImplCopyWithImpl<$Res>
     extends _$GetCurrentUserCopyWithImpl<$Res, _$GetCurrentUserErrorImpl>
     implements _$$GetCurrentUserErrorImplCopyWith<$Res> {
-  __$$GetCurrentUserErrorImplCopyWithImpl(_$GetCurrentUserErrorImpl _value,
-      $Res Function(_$GetCurrentUserErrorImpl) _then)
+  __$$GetCurrentUserErrorImplCopyWithImpl(
+      _$GetCurrentUserErrorImpl _value, $Res Function(_$GetCurrentUserErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -400,20 +392,17 @@ class _$GetCurrentUserErrorImpl implements GetCurrentUserError {
         (other.runtimeType == runtimeType &&
             other is _$GetCurrentUserErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GetCurrentUserErrorImplCopyWith<_$GetCurrentUserErrorImpl> get copyWith =>
-      __$$GetCurrentUserErrorImplCopyWithImpl<_$GetCurrentUserErrorImpl>(
-          this, _$identity);
+      __$$GetCurrentUserErrorImplCopyWithImpl<_$GetCurrentUserErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -485,13 +474,10 @@ class _$GetCurrentUserErrorImpl implements GetCurrentUserError {
 }
 
 abstract class GetCurrentUserError implements GetCurrentUser, ErrorAction {
-  const factory GetCurrentUserError(
-          final Object error, final StackTrace stackTrace) =
-      _$GetCurrentUserErrorImpl;
+  const factory GetCurrentUserError(final Object error, final StackTrace stackTrace) = _$GetCurrentUserErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$GetCurrentUserErrorImplCopyWith<_$GetCurrentUserErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetCurrentUserErrorImplCopyWith<_$GetCurrentUserErrorImpl> get copyWith => throw _privateConstructorUsedError;
 }

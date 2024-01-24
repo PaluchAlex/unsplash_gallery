@@ -32,15 +32,13 @@ mixin _$Review {
 
 /// @nodoc
 abstract class $ReviewCopyWith<$Res> {
-  factory $ReviewCopyWith(Review value, $Res Function(Review) then) =
-      _$ReviewCopyWithImpl<$Res, Review>;
+  factory $ReviewCopyWith(Review value, $Res Function(Review) then) = _$ReviewCopyWithImpl<$Res, Review>;
   @useResult
   $Res call({String id, String text, String uid, DateTime createdAt});
 }
 
 /// @nodoc
-class _$ReviewCopyWithImpl<$Res, $Val extends Review>
-    implements $ReviewCopyWith<$Res> {
+class _$ReviewCopyWithImpl<$Res, $Val extends Review> implements $ReviewCopyWith<$Res> {
   _$ReviewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -79,8 +77,7 @@ class _$ReviewCopyWithImpl<$Res, $Val extends Review>
 
 /// @nodoc
 abstract class _$$Review$ImplCopyWith<$Res> implements $ReviewCopyWith<$Res> {
-  factory _$$Review$ImplCopyWith(
-          _$Review$Impl value, $Res Function(_$Review$Impl) then) =
+  factory _$$Review$ImplCopyWith(_$Review$Impl value, $Res Function(_$Review$Impl) then) =
       __$$Review$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -88,12 +85,9 @@ abstract class _$$Review$ImplCopyWith<$Res> implements $ReviewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$Review$ImplCopyWithImpl<$Res>
-    extends _$ReviewCopyWithImpl<$Res, _$Review$Impl>
+class __$$Review$ImplCopyWithImpl<$Res> extends _$ReviewCopyWithImpl<$Res, _$Review$Impl>
     implements _$$Review$ImplCopyWith<$Res> {
-  __$$Review$ImplCopyWithImpl(
-      _$Review$Impl _value, $Res Function(_$Review$Impl) _then)
-      : super(_value, _then);
+  __$$Review$ImplCopyWithImpl(_$Review$Impl _value, $Res Function(_$Review$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -127,14 +121,9 @@ class __$$Review$ImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$Review$Impl implements Review$ {
-  const _$Review$Impl(
-      {required this.id,
-      required this.text,
-      required this.uid,
-      required this.createdAt});
+  const _$Review$Impl({required this.id, required this.text, required this.uid, required this.createdAt});
 
-  factory _$Review$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$Review$ImplFromJson(json);
+  factory _$Review$Impl.fromJson(Map<String, dynamic> json) => _$$Review$ImplFromJson(json);
 
   @override
   final String id;
@@ -158,8 +147,7 @@ class _$Review$Impl implements Review$ {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.uid, uid) || other.uid == uid) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+            (identical(other.createdAt, createdAt) || other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
@@ -169,8 +157,7 @@ class _$Review$Impl implements Review$ {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$Review$ImplCopyWith<_$Review$Impl> get copyWith =>
-      __$$Review$ImplCopyWithImpl<_$Review$Impl>(this, _$identity);
+  _$$Review$ImplCopyWith<_$Review$Impl> get copyWith => __$$Review$ImplCopyWithImpl<_$Review$Impl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -199,6 +186,5 @@ abstract class Review$ implements Review {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$Review$ImplCopyWith<_$Review$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$Review$ImplCopyWith<_$Review$Impl> get copyWith => throw _privateConstructorUsedError;
 }

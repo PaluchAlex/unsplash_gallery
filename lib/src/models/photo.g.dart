@@ -14,8 +14,7 @@ _$Photo$Impl _$$Photo$ImplFromJson(Map<String, dynamic> json) => _$Photo$Impl(
       user: PhotoUser.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$Photo$ImplToJson(_$Photo$Impl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$Photo$ImplToJson(_$Photo$Impl instance) => <String, dynamic>{
       'id': instance.id,
       'urls': instance.urls,
       'alt_description': instance.description,

@@ -64,14 +64,12 @@ mixin _$GetReviews {
 
 /// @nodoc
 abstract class $GetReviewsCopyWith<$Res> {
-  factory $GetReviewsCopyWith(
-          GetReviews value, $Res Function(GetReviews) then) =
+  factory $GetReviewsCopyWith(GetReviews value, $Res Function(GetReviews) then) =
       _$GetReviewsCopyWithImpl<$Res, GetReviews>;
 }
 
 /// @nodoc
-class _$GetReviewsCopyWithImpl<$Res, $Val extends GetReviews>
-    implements $GetReviewsCopyWith<$Res> {
+class _$GetReviewsCopyWithImpl<$Res, $Val extends GetReviews> implements $GetReviewsCopyWith<$Res> {
   _$GetReviewsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -82,19 +80,16 @@ class _$GetReviewsCopyWithImpl<$Res, $Val extends GetReviews>
 
 /// @nodoc
 abstract class _$$GetReviewsStartImplCopyWith<$Res> {
-  factory _$$GetReviewsStartImplCopyWith(_$GetReviewsStartImpl value,
-          $Res Function(_$GetReviewsStartImpl) then) =
+  factory _$$GetReviewsStartImplCopyWith(_$GetReviewsStartImpl value, $Res Function(_$GetReviewsStartImpl) then) =
       __$$GetReviewsStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int photoId});
 }
 
 /// @nodoc
-class __$$GetReviewsStartImplCopyWithImpl<$Res>
-    extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsStartImpl>
+class __$$GetReviewsStartImplCopyWithImpl<$Res> extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsStartImpl>
     implements _$$GetReviewsStartImplCopyWith<$Res> {
-  __$$GetReviewsStartImplCopyWithImpl(
-      _$GetReviewsStartImpl _value, $Res Function(_$GetReviewsStartImpl) _then)
+  __$$GetReviewsStartImplCopyWithImpl(_$GetReviewsStartImpl _value, $Res Function(_$GetReviewsStartImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -139,8 +134,7 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
   @override
   @pragma('vm:prefer-inline')
   _$$GetReviewsStartImplCopyWith<_$GetReviewsStartImpl> get copyWith =>
-      __$$GetReviewsStartImplCopyWithImpl<_$GetReviewsStartImpl>(
-          this, _$identity);
+      __$$GetReviewsStartImplCopyWithImpl<_$GetReviewsStartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -216,25 +210,23 @@ abstract class GetReviewsStart implements GetReviews {
 
   int get photoId;
   @JsonKey(ignore: true)
-  _$$GetReviewsStartImplCopyWith<_$GetReviewsStartImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetReviewsStartImplCopyWith<_$GetReviewsStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetReviewsSuccessfulImplCopyWith<$Res> {
-  factory _$$GetReviewsSuccessfulImplCopyWith(_$GetReviewsSuccessfulImpl value,
-          $Res Function(_$GetReviewsSuccessfulImpl) then) =
+  factory _$$GetReviewsSuccessfulImplCopyWith(
+          _$GetReviewsSuccessfulImpl value, $Res Function(_$GetReviewsSuccessfulImpl) then) =
       __$$GetReviewsSuccessfulImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Review> reviews});
 }
 
 /// @nodoc
-class __$$GetReviewsSuccessfulImplCopyWithImpl<$Res>
-    extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsSuccessfulImpl>
+class __$$GetReviewsSuccessfulImplCopyWithImpl<$Res> extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsSuccessfulImpl>
     implements _$$GetReviewsSuccessfulImplCopyWith<$Res> {
-  __$$GetReviewsSuccessfulImplCopyWithImpl(_$GetReviewsSuccessfulImpl _value,
-      $Res Function(_$GetReviewsSuccessfulImpl) _then)
+  __$$GetReviewsSuccessfulImplCopyWithImpl(
+      _$GetReviewsSuccessfulImpl _value, $Res Function(_$GetReviewsSuccessfulImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -254,8 +246,7 @@ class __$$GetReviewsSuccessfulImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
-  const _$GetReviewsSuccessfulImpl(final List<Review> reviews)
-      : _reviews = reviews;
+  const _$GetReviewsSuccessfulImpl(final List<Review> reviews) : _reviews = reviews;
 
   final List<Review> _reviews;
   @override
@@ -279,16 +270,13 @@ class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_reviews));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_reviews));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetReviewsSuccessfulImplCopyWith<_$GetReviewsSuccessfulImpl>
-      get copyWith =>
-          __$$GetReviewsSuccessfulImplCopyWithImpl<_$GetReviewsSuccessfulImpl>(
-              this, _$identity);
+  _$$GetReviewsSuccessfulImplCopyWith<_$GetReviewsSuccessfulImpl> get copyWith =>
+      __$$GetReviewsSuccessfulImplCopyWithImpl<_$GetReviewsSuccessfulImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -360,30 +348,25 @@ class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
 }
 
 abstract class GetReviewsSuccessful implements GetReviews {
-  const factory GetReviewsSuccessful(final List<Review> reviews) =
-      _$GetReviewsSuccessfulImpl;
+  const factory GetReviewsSuccessful(final List<Review> reviews) = _$GetReviewsSuccessfulImpl;
 
   List<Review> get reviews;
   @JsonKey(ignore: true)
-  _$$GetReviewsSuccessfulImplCopyWith<_$GetReviewsSuccessfulImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GetReviewsSuccessfulImplCopyWith<_$GetReviewsSuccessfulImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetReviewsErrorImplCopyWith<$Res> {
-  factory _$$GetReviewsErrorImplCopyWith(_$GetReviewsErrorImpl value,
-          $Res Function(_$GetReviewsErrorImpl) then) =
+  factory _$$GetReviewsErrorImplCopyWith(_$GetReviewsErrorImpl value, $Res Function(_$GetReviewsErrorImpl) then) =
       __$$GetReviewsErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$GetReviewsErrorImplCopyWithImpl<$Res>
-    extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsErrorImpl>
+class __$$GetReviewsErrorImplCopyWithImpl<$Res> extends _$GetReviewsCopyWithImpl<$Res, _$GetReviewsErrorImpl>
     implements _$$GetReviewsErrorImplCopyWith<$Res> {
-  __$$GetReviewsErrorImplCopyWithImpl(
-      _$GetReviewsErrorImpl _value, $Res Function(_$GetReviewsErrorImpl) _then)
+  __$$GetReviewsErrorImplCopyWithImpl(_$GetReviewsErrorImpl _value, $Res Function(_$GetReviewsErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -423,20 +406,17 @@ class _$GetReviewsErrorImpl implements GetReviewsError {
         (other.runtimeType == runtimeType &&
             other is _$GetReviewsErrorImpl &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GetReviewsErrorImplCopyWith<_$GetReviewsErrorImpl> get copyWith =>
-      __$$GetReviewsErrorImplCopyWithImpl<_$GetReviewsErrorImpl>(
-          this, _$identity);
+      __$$GetReviewsErrorImplCopyWithImpl<_$GetReviewsErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -508,12 +488,10 @@ class _$GetReviewsErrorImpl implements GetReviewsError {
 }
 
 abstract class GetReviewsError implements GetReviews, ErrorAction {
-  const factory GetReviewsError(
-      final Object error, final StackTrace stackTrace) = _$GetReviewsErrorImpl;
+  const factory GetReviewsError(final Object error, final StackTrace stackTrace) = _$GetReviewsErrorImpl;
 
   Object get error;
   StackTrace get stackTrace;
   @JsonKey(ignore: true)
-  _$$GetReviewsErrorImplCopyWith<_$GetReviewsErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetReviewsErrorImplCopyWith<_$GetReviewsErrorImpl> get copyWith => throw _privateConstructorUsedError;
 }

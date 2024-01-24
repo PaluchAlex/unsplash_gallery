@@ -25,21 +25,18 @@ mixin _$PhotoUrls {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PhotoUrlsCopyWith<PhotoUrls> get copyWith =>
-      throw _privateConstructorUsedError;
+  $PhotoUrlsCopyWith<PhotoUrls> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $PhotoUrlsCopyWith<$Res> {
-  factory $PhotoUrlsCopyWith(PhotoUrls value, $Res Function(PhotoUrls) then) =
-      _$PhotoUrlsCopyWithImpl<$Res, PhotoUrls>;
+  factory $PhotoUrlsCopyWith(PhotoUrls value, $Res Function(PhotoUrls) then) = _$PhotoUrlsCopyWithImpl<$Res, PhotoUrls>;
   @useResult
   $Res call({String small, String regular});
 }
 
 /// @nodoc
-class _$PhotoUrlsCopyWithImpl<$Res, $Val extends PhotoUrls>
-    implements $PhotoUrlsCopyWith<$Res> {
+class _$PhotoUrlsCopyWithImpl<$Res, $Val extends PhotoUrls> implements $PhotoUrlsCopyWith<$Res> {
   _$PhotoUrlsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -67,10 +64,8 @@ class _$PhotoUrlsCopyWithImpl<$Res, $Val extends PhotoUrls>
 }
 
 /// @nodoc
-abstract class _$$PhotoUrls$ImplCopyWith<$Res>
-    implements $PhotoUrlsCopyWith<$Res> {
-  factory _$$PhotoUrls$ImplCopyWith(
-          _$PhotoUrls$Impl value, $Res Function(_$PhotoUrls$Impl) then) =
+abstract class _$$PhotoUrls$ImplCopyWith<$Res> implements $PhotoUrlsCopyWith<$Res> {
+  factory _$$PhotoUrls$ImplCopyWith(_$PhotoUrls$Impl value, $Res Function(_$PhotoUrls$Impl) then) =
       __$$PhotoUrls$ImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -78,12 +73,9 @@ abstract class _$$PhotoUrls$ImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PhotoUrls$ImplCopyWithImpl<$Res>
-    extends _$PhotoUrlsCopyWithImpl<$Res, _$PhotoUrls$Impl>
+class __$$PhotoUrls$ImplCopyWithImpl<$Res> extends _$PhotoUrlsCopyWithImpl<$Res, _$PhotoUrls$Impl>
     implements _$$PhotoUrls$ImplCopyWith<$Res> {
-  __$$PhotoUrls$ImplCopyWithImpl(
-      _$PhotoUrls$Impl _value, $Res Function(_$PhotoUrls$Impl) _then)
-      : super(_value, _then);
+  __$$PhotoUrls$ImplCopyWithImpl(_$PhotoUrls$Impl _value, $Res Function(_$PhotoUrls$Impl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -109,8 +101,7 @@ class __$$PhotoUrls$ImplCopyWithImpl<$Res>
 class _$PhotoUrls$Impl implements PhotoUrls$ {
   const _$PhotoUrls$Impl({required this.small, required this.regular});
 
-  factory _$PhotoUrls$Impl.fromJson(Map<String, dynamic> json) =>
-      _$$PhotoUrls$ImplFromJson(json);
+  factory _$PhotoUrls$Impl.fromJson(Map<String, dynamic> json) => _$$PhotoUrls$ImplFromJson(json);
 
   @override
   final String small;
@@ -150,12 +141,9 @@ class _$PhotoUrls$Impl implements PhotoUrls$ {
 }
 
 abstract class PhotoUrls$ implements PhotoUrls {
-  const factory PhotoUrls$(
-      {required final String small,
-      required final String regular}) = _$PhotoUrls$Impl;
+  const factory PhotoUrls$({required final String small, required final String regular}) = _$PhotoUrls$Impl;
 
-  factory PhotoUrls$.fromJson(Map<String, dynamic> json) =
-      _$PhotoUrls$Impl.fromJson;
+  factory PhotoUrls$.fromJson(Map<String, dynamic> json) = _$PhotoUrls$Impl.fromJson;
 
   @override
   String get small;
@@ -163,6 +151,5 @@ abstract class PhotoUrls$ implements PhotoUrls {
   String get regular;
   @override
   @JsonKey(ignore: true)
-  _$$PhotoUrls$ImplCopyWith<_$PhotoUrls$Impl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PhotoUrls$ImplCopyWith<_$PhotoUrls$Impl> get copyWith => throw _privateConstructorUsedError;
 }
