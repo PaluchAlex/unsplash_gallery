@@ -218,12 +218,11 @@ class _HomeState extends State<Home> {
                                                             decoration: BoxDecoration(
                                                               borderRadius: const BorderRadius.all(Radius.circular(14)),
                                                               color: const Color(0xFFFFFFFF).withOpacity(0.5),
-
                                                             ),
                                                             child: RichText(
                                                               text: TextSpan(
-                                                                style: const TextStyle(color: Colors.pink,
-                                                                fontSize: 18),
+                                                                style:
+                                                                    const TextStyle(color: Colors.pink, fontSize: 18),
                                                                 children: <InlineSpan>[
                                                                   WidgetSpan(
                                                                     child: Icon(
@@ -234,7 +233,6 @@ class _HomeState extends State<Home> {
                                                                     ),
                                                                   ),
                                                                   TextSpan(
-
                                                                     text: '${photo.likes}',
                                                                   ),
                                                                 ],
@@ -247,13 +245,13 @@ class _HomeState extends State<Home> {
                                                             decoration: BoxDecoration(
                                                               borderRadius: const BorderRadius.all(Radius.circular(14)),
                                                               color: const Color(0xFFFFFFFF).withOpacity(0.5),
-
                                                             ),
                                                             child: Text(
-                                                                style: const TextStyle(fontSize: 18),
-                                                                photo.user.name.length > 17
-                                                                ? '@${photo.user.name.substring(0, 17)}...'
-                                                                : '@${photo.user.name}',),
+                                                              style: const TextStyle(fontSize: 18),
+                                                              photo.user.name.length > 17
+                                                                  ? '@${photo.user.name.substring(0, 17)}...'
+                                                                  : '@${photo.user.name}',
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
