@@ -64,7 +64,7 @@ class UnsplashApi {
     return <Photo>[];
   }
 
-  Future<List<Review>> getReviews(int photoId) async {
+  Future<List<Review>> getReviews(String photoId) async {
     final QuerySnapshot<Map<String, dynamic>> snapshot = await _firestore
         .collection('movies/$photoId/reviews') //
         .orderBy('createdAt', descending: true)

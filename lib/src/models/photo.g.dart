@@ -7,7 +7,7 @@ part of 'photo.dart';
 // **************************************************************************
 
 _$Photo$Impl _$$Photo$ImplFromJson(Map<String, dynamic> json) => _$Photo$Impl(
-      id: json['id'] as int,
+      id: json['id'] as String,
       urls: PhotoUrls.fromJson(json['urls'] as Map<String, dynamic>),
       description: json['alt_description'] as String? ?? '',
       likes: json['likes'] as int,

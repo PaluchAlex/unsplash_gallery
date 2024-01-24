@@ -20,7 +20,7 @@ Photo _$PhotoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Photo {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   PhotoUrls get urls => throw _privateConstructorUsedError;
   @JsonKey(name: 'alt_description')
   String get description => throw _privateConstructorUsedError;
@@ -36,7 +36,8 @@ mixin _$Photo {
 abstract class $PhotoCopyWith<$Res> {
   factory $PhotoCopyWith(Photo value, $Res Function(Photo) then) = _$PhotoCopyWithImpl<$Res, Photo>;
   @useResult
-  $Res call({int id, PhotoUrls urls, @JsonKey(name: 'alt_description') String description, int likes, PhotoUser user});
+  $Res call(
+      {String id, PhotoUrls urls, @JsonKey(name: 'alt_description') String description, int likes, PhotoUser user});
 
   $PhotoUrlsCopyWith<$Res> get urls;
   $PhotoUserCopyWith<$Res> get user;
@@ -64,7 +65,7 @@ class _$PhotoCopyWithImpl<$Res, $Val extends Photo> implements $PhotoCopyWith<$R
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       urls: null == urls
           ? _value.urls
           : urls // ignore: cast_nullable_to_non_nullable
@@ -107,7 +108,8 @@ abstract class _$$Photo$ImplCopyWith<$Res> implements $PhotoCopyWith<$Res> {
       __$$Photo$ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, PhotoUrls urls, @JsonKey(name: 'alt_description') String description, int likes, PhotoUser user});
+  $Res call(
+      {String id, PhotoUrls urls, @JsonKey(name: 'alt_description') String description, int likes, PhotoUser user});
 
   @override
   $PhotoUrlsCopyWith<$Res> get urls;
@@ -133,7 +135,7 @@ class __$$Photo$ImplCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res, _$Photo
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       urls: null == urls
           ? _value.urls
           : urls // ignore: cast_nullable_to_non_nullable
@@ -167,7 +169,7 @@ class _$Photo$Impl implements Photo$ {
   factory _$Photo$Impl.fromJson(Map<String, dynamic> json) => _$$Photo$ImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final PhotoUrls urls;
   @override
@@ -214,7 +216,7 @@ class _$Photo$Impl implements Photo$ {
 
 abstract class Photo$ implements Photo {
   const factory Photo$(
-      {required final int id,
+      {required final String id,
       required final PhotoUrls urls,
       @JsonKey(name: 'alt_description') final String description,
       required final int likes,
@@ -223,7 +225,7 @@ abstract class Photo$ implements Photo {
   factory Photo$.fromJson(Map<String, dynamic> json) = _$Photo$Impl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   PhotoUrls get urls;
   @override

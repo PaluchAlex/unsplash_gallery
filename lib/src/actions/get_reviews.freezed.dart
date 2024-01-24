@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GetReviews {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int photoId) $default, {
+    TResult Function(String photoId) $default, {
     required TResult Function(List<Review> reviews) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int photoId)? $default, {
+    TResult? Function(String photoId)? $default, {
     TResult? Function(List<Review> reviews)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int photoId)? $default, {
+    TResult Function(String photoId)? $default, {
     TResult Function(List<Review> reviews)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -83,7 +83,7 @@ abstract class _$$GetReviewsStartImplCopyWith<$Res> {
   factory _$$GetReviewsStartImplCopyWith(_$GetReviewsStartImpl value, $Res Function(_$GetReviewsStartImpl) then) =
       __$$GetReviewsStartImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int photoId});
+  $Res call({String photoId});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$GetReviewsStartImplCopyWithImpl<$Res> extends _$GetReviewsCopyWithImpl
       null == photoId
           ? _value.photoId
           : photoId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -112,7 +112,7 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
   const _$GetReviewsStartImpl(this.photoId);
 
   @override
-  final int photoId;
+  final String photoId;
 
   @override
   String toString() {
@@ -139,7 +139,7 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int photoId) $default, {
+    TResult Function(String photoId) $default, {
     required TResult Function(List<Review> reviews) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -149,7 +149,7 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int photoId)? $default, {
+    TResult? Function(String photoId)? $default, {
     TResult? Function(List<Review> reviews)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -159,7 +159,7 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int photoId)? $default, {
+    TResult Function(String photoId)? $default, {
     TResult Function(List<Review> reviews)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -206,9 +206,9 @@ class _$GetReviewsStartImpl implements GetReviewsStart {
 }
 
 abstract class GetReviewsStart implements GetReviews {
-  const factory GetReviewsStart(final int photoId) = _$GetReviewsStartImpl;
+  const factory GetReviewsStart(final String photoId) = _$GetReviewsStartImpl;
 
-  int get photoId;
+  String get photoId;
   @JsonKey(ignore: true)
   _$$GetReviewsStartImplCopyWith<_$GetReviewsStartImpl> get copyWith => throw _privateConstructorUsedError;
 }
@@ -281,7 +281,7 @@ class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int photoId) $default, {
+    TResult Function(String photoId) $default, {
     required TResult Function(List<Review> reviews) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -291,7 +291,7 @@ class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int photoId)? $default, {
+    TResult? Function(String photoId)? $default, {
     TResult? Function(List<Review> reviews)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -301,7 +301,7 @@ class _$GetReviewsSuccessfulImpl implements GetReviewsSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int photoId)? $default, {
+    TResult Function(String photoId)? $default, {
     TResult Function(List<Review> reviews)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),
@@ -421,7 +421,7 @@ class _$GetReviewsErrorImpl implements GetReviewsError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int photoId) $default, {
+    TResult Function(String photoId) $default, {
     required TResult Function(List<Review> reviews) successful,
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) {
@@ -431,7 +431,7 @@ class _$GetReviewsErrorImpl implements GetReviewsError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int photoId)? $default, {
+    TResult? Function(String photoId)? $default, {
     TResult? Function(List<Review> reviews)? successful,
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) {
@@ -441,7 +441,7 @@ class _$GetReviewsErrorImpl implements GetReviewsError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int photoId)? $default, {
+    TResult Function(String photoId)? $default, {
     TResult Function(List<Review> reviews)? successful,
     TResult Function(Object error, StackTrace stackTrace)? error,
     required TResult orElse(),

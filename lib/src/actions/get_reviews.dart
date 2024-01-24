@@ -7,7 +7,7 @@ part 'get_reviews.freezed.dart';
 
 @freezed
 class GetReviews with _$GetReviews implements AppAction {
-  const factory GetReviews(int photoId) = GetReviewsStart;
+  const factory GetReviews(String photoId) = GetReviewsStart;
 
   const factory GetReviews.successful(List<Review> reviews) = GetReviewsSuccessful;
 
