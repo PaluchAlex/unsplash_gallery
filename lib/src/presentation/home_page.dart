@@ -251,8 +251,8 @@ class _HomeState extends State<Home> {
                                                             ),
                                                             child: Text(
                                                                 style: const TextStyle(fontSize: 18),
-                                                                photo.user.name.length > 30
-                                                                ? '@${photo.user.name.substring(0, 30)}...'
+                                                                photo.user.name.length > 17
+                                                                ? '@${photo.user.name.substring(0, 17)}...'
                                                                 : '@${photo.user.name}',),
                                                           ),
                                                         ],
