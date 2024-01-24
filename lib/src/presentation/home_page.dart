@@ -160,7 +160,7 @@ class _HomeState extends State<Home> {
 
                                         /// the item
                                         return Padding(
-                                          padding: const EdgeInsets.only(top: 8.0, left: 8, right: 8),
+                                          padding: const EdgeInsets.only(left: 8, right: 8),
                                           child: Column(
                                             children: <Widget>[
                                               /// item image area
@@ -208,9 +208,30 @@ class _HomeState extends State<Home> {
                                                   },
                                                   child: Row(
                                                     children: <Widget>[
-                                                      Text('Likes: ${photo.likes}'),
+                                                      RichText(
+                                                        text: TextSpan(
+                                                          style: const TextStyle(color: Colors.pink,
+                                                          fontSize: 18),
+                                                          children: <InlineSpan>[
+                                                            WidgetSpan(
+                                                              child: Icon(
+                                                                Icons.favorite,
+                                                                color: Colors.pink,
+                                                                size: 20.0,
+                                                                semanticLabel: '${photo.likes} Likes',
+                                                              ),
+                                                            ),
+                                                            TextSpan(
+
+                                                              text: '${photo.likes}',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
                                                       Expanded(child: Container()),
-                                                      Text('Author: ${photo.user.name}'),
+                                                      Text(photo.user.name.length > 30
+                                                          ? '${photo.user.name.substring(0, 30)}...'
+                                                          : photo.user.name),
                                                     ],
                                                   ),
                                                 ),
