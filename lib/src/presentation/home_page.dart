@@ -70,6 +70,7 @@ class _HomeState extends State<Home> {
         return IsLoadingContainer(
           builder: (BuildContext context, bool isLoading) {
             return RefreshIndicator(
+              /// refresh
               onRefresh: () async {
                 textController.clear();
                 context
@@ -91,6 +92,16 @@ class _HomeState extends State<Home> {
                               Navigator.pushNamed(context, '/profile');
                             },
                             child: const UserPicture(),
+                          )
+                        else
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/loginUser');
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.only(right: 8.0),
+                              child: Icon(Icons.login),
+                            ),
                           ),
                       ],
                     ),

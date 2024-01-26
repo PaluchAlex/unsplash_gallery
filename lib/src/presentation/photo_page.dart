@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../actions/create_review.dart';
 import '../models/photo.dart';
 import '../models/review.dart';
 import 'containers/reviews_container.dart';
 import 'containers/selected_photo_container.dart';
+import 'extensions.dart';
 
 class PhotoPage extends StatelessWidget {
   const PhotoPage({super.key});
@@ -63,11 +65,54 @@ class PhotoPage extends StatelessWidget {
                     )
                   else
                     const SliverFillRemaining(
-                      child: Text('Be the first to leave a review'),
+                      child: Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Center(
+                          child: Text(
+                            'Be the first to leave a review',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                        ),
+                      ),
                     )
                 ],
               );
             },
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              final TextEditingController controller = TextEditingController();
+              showDialog<void>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Add your review'),
+                    content: TextField(
+                      controller: controller,
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          final String text = controller.text.trim();
+                          if (text.isNotEmpty) {
+                            context.dispatch(CreateReview(text));
+                          }
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Save'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Icon(Icons.add_comment),
           ),
         );
       },

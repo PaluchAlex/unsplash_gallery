@@ -3,6 +3,7 @@ import 'package:rxdart/rxdart.dart';
 
 import '../actions/app_action.dart';
 import '../actions/change_picture.dart';
+import '../actions/create_review.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/get_reviews.dart';
@@ -32,6 +33,7 @@ class AppEpics extends EpicClass<AppState> {
       TypedEpic<AppState, LoginStart>(_loginStart).call,
       TypedEpic<AppState, ChangePictureStart>(_changePictureStart).call,
       TypedEpic<AppState, GetReviewsStart>(_getReviewsStart).call,
+      TypedEpic<AppState, CreateReviewStart>(_createReviewStart).call,
     ])(actions, store);
   }
 
@@ -114,5 +116,21 @@ class AppEpics extends EpicClass<AppState> {
             .onErrorReturnWith((Object error, StackTrace stackTrace) => GetReviews.error(error, stackTrace));
       },
     );
+  }
+
+  Stream<AppAction> _createReviewStart(Stream<CreateReviewStart> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((CreateReviewStart action) {
+      return Stream<void>.value(null)
+          .asyncMap((_) {
+            return api.createReview(
+              photoId: store.state.selectedPhoto!.id,
+              text: action.text,
+              uid: store.state.user!.uid,
+            );
+          })
+          .map((Review review) => CreateReview.successful(review))
+          .onErrorReturnWith((Object error, StackTrace stackTrace) => CreateReview.error(error, stackTrace));
+    });
   }
 }

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:redux/redux.dart';
 
 import '../actions/change_picture.dart';
+import '../actions/create_review.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/get_reviews.dart';
@@ -12,6 +13,7 @@ import '../actions/set.dart';
 import '../actions/sign_out.dart';
 import '../models/app_state.dart';
 import '../models/photo.dart';
+import '../models/review.dart';
 
 AppState reducer(AppState state, dynamic action) {
   log('$action');
@@ -29,6 +31,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, ChangePictureSuccessful>(_changePictureSuccessful).call,
       TypedReducer<AppState, SetSelectedPhoto>(_setSelectedPhoto).call,
       TypedReducer<AppState, GetReviewsSuccessful>(_getReviewsSuccessful).call,
+      TypedReducer<AppState, CreateReviewSuccessful>(_createReviewSuccessful).call,
     ],
   )(state, action);
 }
@@ -83,4 +86,8 @@ AppState _setSelectedPhoto(AppState state, SetSelectedPhoto action) {
 
 AppState _getReviewsSuccessful(AppState state, GetReviewsSuccessful action) {
   return state.copyWith(reviews: action.reviews);
+}
+
+AppState _createReviewSuccessful(AppState state, CreateReviewSuccessful action) {
+  return state.copyWith(reviews: <Review>[action.review, ...state.reviews]);
 }

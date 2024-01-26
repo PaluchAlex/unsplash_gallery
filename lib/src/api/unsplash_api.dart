@@ -74,4 +74,23 @@ class UnsplashApi {
         .map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => Review.fromJson(doc.data()))
         .toList();
   }
+
+  Future<Review> createReview({
+    required String photoId,
+    required String text,
+    required String uid,
+  }) async {
+    final DocumentReference<Map<String, dynamic>> ref = _firestore.collection('movies/$photoId/reviews').doc();
+
+    final Review review = Review(
+      id: ref.id,
+      text: text,
+      uid: uid,
+      createdAt: DateTime.now(),
+    );
+
+    await ref.set(review.toJson());
+
+    return review;
+  }
 }
