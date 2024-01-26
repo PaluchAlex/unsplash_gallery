@@ -7,11 +7,13 @@ import '../actions/create_review.dart';
 import '../actions/create_user.dart';
 import '../actions/get_current_user.dart';
 import '../actions/get_reviews.dart';
+import '../actions/get_users.dart';
 import '../actions/load_items.dart';
 import '../actions/login.dart';
 import '../actions/set.dart';
 import '../actions/sign_out.dart';
 import '../models/app_state.dart';
+import '../models/app_user.dart';
 import '../models/photo.dart';
 import '../models/review.dart';
 
@@ -32,6 +34,7 @@ AppState reducer(AppState state, dynamic action) {
       TypedReducer<AppState, SetSelectedPhoto>(_setSelectedPhoto).call,
       TypedReducer<AppState, GetReviewsSuccessful>(_getReviewsSuccessful).call,
       TypedReducer<AppState, CreateReviewSuccessful>(_createReviewSuccessful).call,
+      TypedReducer<AppState, GetUsersSuccessful>(_getUsersSuccessful).call,
     ],
   )(state, action);
 }
@@ -90,4 +93,13 @@ AppState _getReviewsSuccessful(AppState state, GetReviewsSuccessful action) {
 
 AppState _createReviewSuccessful(AppState state, CreateReviewSuccessful action) {
   return state.copyWith(reviews: <Review>[action.review, ...state.reviews]);
+}
+
+AppState _getUsersSuccessful(AppState state, GetUsersSuccessful action) {
+  return state.copyWith(
+    users: <String, AppUser>{
+      ...state.users,
+      for (final AppUser user in action.users) user.uid: user,
+    },
+  );
 }

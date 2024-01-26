@@ -13,6 +13,7 @@ class AppState with _$AppState {
     Photo? selectedPhoto,
     @Default('') String query,
     @Default(1) int page,
+    @Default(<String, AppUser>{}) Map<String, AppUser> users,
     @Default(<Review>[]) List<Review> reviews,
     @Default(<Photo>[]) List<Photo> photos,
     @Default(false) bool isLoading,

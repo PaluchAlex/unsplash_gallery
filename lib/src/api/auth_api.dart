@@ -26,14 +26,17 @@ class AuthApi {
     }
     return null;
   }
+
   Future<AppUser> createUser({required String email, required String password}) async {
     await _auth.createUserWithEmailAndPassword(email: email, password: password);
     return _extractUser();
   }
+
   Future<AppUser> login({required String email, required String password}) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
     return _extractUser();
   }
+
   Future<AppUser> changePicture(String path) async {
     final User user = _auth.currentUser!;
     final Reference ref = _storage.ref('users/${user.uid}/profile.png');
@@ -74,5 +77,19 @@ class AuthApi {
     }
 
     return appUser;
+  }
+
+  // This will work for up to 30 users at a time. If we have more we need to partition the list to make multiple
+  // requests.
+  // https://firebase.google.com/docs/firestore/query-data/queries#in_not-in_and_array-contains-any
+  Future<List<AppUser>> getUsers(List<String> uids) async {
+    final QuerySnapshot<Map<String, dynamic>> snapshot = await _firestore
+        .collection('users') //
+        .where('uid', whereIn: uids)
+        .get();
+
+    return snapshot.docs //
+        .map((QueryDocumentSnapshot<Map<String, dynamic>> doc) => AppUser.fromJson(doc.data()))
+        .toList();
   }
 }

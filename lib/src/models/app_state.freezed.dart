@@ -24,6 +24,7 @@ mixin _$AppState {
   Photo? get selectedPhoto => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  Map<String, AppUser> get users => throw _privateConstructorUsedError;
   List<Review> get reviews => throw _privateConstructorUsedError;
   List<Photo> get photos => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -42,6 +43,7 @@ abstract class $AppStateCopyWith<$Res> {
       Photo? selectedPhoto,
       String query,
       int page,
+      Map<String, AppUser> users,
       List<Review> reviews,
       List<Photo> photos,
       bool isLoading});
@@ -66,6 +68,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
     Object? selectedPhoto = freezed,
     Object? query = null,
     Object? page = null,
+    Object? users = null,
     Object? reviews = null,
     Object? photos = null,
     Object? isLoading = null,
@@ -87,6 +90,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as Map<String, AppUser>,
       reviews: null == reviews
           ? _value.reviews
           : reviews // ignore: cast_nullable_to_non_nullable
@@ -138,6 +145,7 @@ abstract class _$$AppState$ImplCopyWith<$Res> implements $AppStateCopyWith<$Res>
       Photo? selectedPhoto,
       String query,
       int page,
+      Map<String, AppUser> users,
       List<Review> reviews,
       List<Photo> photos,
       bool isLoading});
@@ -160,6 +168,7 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
     Object? selectedPhoto = freezed,
     Object? query = null,
     Object? page = null,
+    Object? users = null,
     Object? reviews = null,
     Object? photos = null,
     Object? isLoading = null,
@@ -181,6 +190,10 @@ class __$$AppState$ImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as Map<String, AppUser>,
       reviews: null == reviews
           ? _value._reviews
           : reviews // ignore: cast_nullable_to_non_nullable
@@ -205,10 +218,12 @@ class _$AppState$Impl implements AppState$ {
       this.selectedPhoto,
       this.query = '',
       this.page = 1,
+      final Map<String, AppUser> users = const <String, AppUser>{},
       final List<Review> reviews = const <Review>[],
       final List<Photo> photos = const <Photo>[],
       this.isLoading = false})
-      : _reviews = reviews,
+      : _users = users,
+        _reviews = reviews,
         _photos = photos;
 
   factory _$AppState$Impl.fromJson(Map<String, dynamic> json) => _$$AppState$ImplFromJson(json);
@@ -223,6 +238,15 @@ class _$AppState$Impl implements AppState$ {
   @override
   @JsonKey()
   final int page;
+  final Map<String, AppUser> _users;
+  @override
+  @JsonKey()
+  Map<String, AppUser> get users {
+    if (_users is EqualUnmodifiableMapView) return _users;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_users);
+  }
+
   final List<Review> _reviews;
   @override
   @JsonKey()
@@ -247,7 +271,7 @@ class _$AppState$Impl implements AppState$ {
 
   @override
   String toString() {
-    return 'AppState(user: $user, selectedPhoto: $selectedPhoto, query: $query, page: $page, reviews: $reviews, photos: $photos, isLoading: $isLoading)';
+    return 'AppState(user: $user, selectedPhoto: $selectedPhoto, query: $query, page: $page, users: $users, reviews: $reviews, photos: $photos, isLoading: $isLoading)';
   }
 
   @override
@@ -259,6 +283,7 @@ class _$AppState$Impl implements AppState$ {
             (identical(other.selectedPhoto, selectedPhoto) || other.selectedPhoto == selectedPhoto) &&
             (identical(other.query, query) || other.query == query) &&
             (identical(other.page, page) || other.page == page) &&
+            const DeepCollectionEquality().equals(other._users, _users) &&
             const DeepCollectionEquality().equals(other._reviews, _reviews) &&
             const DeepCollectionEquality().equals(other._photos, _photos) &&
             (identical(other.isLoading, isLoading) || other.isLoading == isLoading));
@@ -266,8 +291,16 @@ class _$AppState$Impl implements AppState$ {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user, selectedPhoto, query, page,
-      const DeepCollectionEquality().hash(_reviews), const DeepCollectionEquality().hash(_photos), isLoading);
+  int get hashCode => Object.hash(
+      runtimeType,
+      user,
+      selectedPhoto,
+      query,
+      page,
+      const DeepCollectionEquality().hash(_users),
+      const DeepCollectionEquality().hash(_reviews),
+      const DeepCollectionEquality().hash(_photos),
+      isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -289,6 +322,7 @@ abstract class AppState$ implements AppState {
       final Photo? selectedPhoto,
       final String query,
       final int page,
+      final Map<String, AppUser> users,
       final List<Review> reviews,
       final List<Photo> photos,
       final bool isLoading}) = _$AppState$Impl;
@@ -303,6 +337,8 @@ abstract class AppState$ implements AppState {
   String get query;
   @override
   int get page;
+  @override
+  Map<String, AppUser> get users;
   @override
   List<Review> get reviews;
   @override
