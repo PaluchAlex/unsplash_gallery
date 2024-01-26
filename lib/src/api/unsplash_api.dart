@@ -66,7 +66,7 @@ class UnsplashApi {
 
   Future<List<Review>> getReviews(String photoId) async {
     final QuerySnapshot<Map<String, dynamic>> snapshot = await _firestore
-        .collection('movies/$photoId/reviews') //
+        .collection('photos/$photoId/reviews') //
         .orderBy('createdAt', descending: true)
         .get();
 
@@ -80,7 +80,7 @@ class UnsplashApi {
     required String text,
     required String uid,
   }) async {
-    final DocumentReference<Map<String, dynamic>> ref = _firestore.collection('movies/$photoId/reviews').doc();
+    final DocumentReference<Map<String, dynamic>> ref = _firestore.collection('photos/$photoId/reviews').doc();
 
     final Review review = Review(
       id: ref.id,

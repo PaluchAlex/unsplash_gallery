@@ -73,7 +73,7 @@ class PhotoPage extends StatelessWidget {
                                 title: Text(review.text),
                                 subtitle: Text(<Object>[
                                   if (user != null) user.displayName,
-                                  review.createdAt,
+                                  review.createdAt.toString().substring(0,16),
                                 ].join('\n')),
                               );
                             },
