@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../actions/create_review.dart';
 import '../models/app_user.dart';
@@ -8,16 +9,24 @@ import 'containers/reviews_container.dart';
 import 'containers/selected_photo_container.dart';
 import 'containers/users_container.dart';
 import 'extensions.dart';
+import 'widgets/full_screen_image.dart';
 
 class PhotoPage extends StatelessWidget {
   const PhotoPage({super.key});
+
+  Future<void> _launchURL(Uri url) async {
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SelectedPhotoContainer(
       builder: (BuildContext context, Photo photo) {
         return Scaffold(
           appBar: AppBar(
-            title: Center(child: Text('Image by @${photo.user.name}')),
+            title: Center(child: Text(photo.user.name)),
           ),
           body: ReviewsContainer(
             builder: (BuildContext context, List<Review> reviews) {
@@ -29,10 +38,17 @@ class PhotoPage extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             Center(
-                              child: SizedBox(
-                                height: 300,
-                                child: AspectRatio(
-                                  aspectRatio: 0.69,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute<void>(
+                                      builder: (BuildContext context) => FullScreenImage(imageUrl: photo.urls.regular),
+                                    ),
+                                  );
+                                },
+                                child: SizedBox(
+                                  height: 300,
                                   child: Image.network(
                                     photo.urls.regular,
                                   ),
@@ -40,16 +56,35 @@ class PhotoPage extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 16.0),
-                            Text(
-                              '${photo.likes}',
-                              style: const TextStyle(
-                                color: Colors.amber,
-                                fontSize: 32.0,
-                                fontWeight: FontWeight.bold,
+                            RichText(
+                              text: TextSpan(
+                                style: const TextStyle(color: Colors.pink, fontSize: 30),
+                                children: <InlineSpan>[
+                                  WidgetSpan(
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: Colors.pink,
+                                      size: 32.0,
+                                      semanticLabel: '${photo.likes} Likes',
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '${photo.likes}',
+                                  ),
+                                ],
                               ),
                             ),
                             const SizedBox(height: 16.0),
-                            Text(photo.description)
+                            Text(photo.description),
+                            GestureDetector(
+                              onTap: () {
+                                _launchURL(Uri.parse(photo.user.links.html));
+                              },
+                              child: Text(
+                                'Image by @${photo.user.name}',
+                                style: const TextStyle(color: Colors.purple),
+                              ),
+                            ),
                           ],
                         ),
                       ),

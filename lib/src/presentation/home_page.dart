@@ -1,6 +1,5 @@
 import 'dart:core';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -179,10 +178,14 @@ class _HomeState extends State<Home> {
                                               /// item image area
                                               InkWell(
                                                 onTap: () {
-                                                  context
-                                                    ..dispatch(SetSelectedPhoto(photo))
-                                                    ..dispatch(GetReviews(photo.id));
-                                                  Navigator.pushNamed(context, '/photo');
+                                                  if (user != null) {
+                                                    context
+                                                      ..dispatch(SetSelectedPhoto(photo))
+                                                      ..dispatch(GetReviews(photo.id));
+                                                    Navigator.pushNamed(context, '/photo');
+                                                  } else {
+                                                    Navigator.pushNamed(context, '/loginUser');
+                                                  }
                                                 },
                                                 child: ClipRRect(
                                                   borderRadius: BorderRadius.circular(20),
@@ -215,13 +218,6 @@ class _HomeState extends State<Home> {
                                                   title: GestureDetector(
                                                     onTap: () {
                                                       _launchURL(Uri.parse(photo.user.links.html));
-                                                      if (user != null) {
-                                                        if (kDebugMode) {
-                                                          print('user is: $user for photo: $photo');
-                                                        }
-                                                      } else {
-                                                        Navigator.pushNamed(context, '/createUser');
-                                                      }
                                                     },
                                                     child: Align(
                                                       alignment: Alignment.bottomCenter,
