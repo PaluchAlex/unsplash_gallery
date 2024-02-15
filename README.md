@@ -4,13 +4,11 @@ This repository contains the final project assigned during the Flutter Google Di
 Digital Stack Course 
 
 # Screenshots
-
-## Home page
-<img src="screenshots/homePage.png" width="200">
-<img src="screenshots/mainPage.png" width="200">
-
-## Photo page
-<img src="screenshots/photoPage.png" width="200">
+<p float="left">
+   <img src="screenshots/homePage.png" width="200">
+   <img src="screenshots/mainPage.png" width="200">
+   <img src="screenshots/photoPage.png" width="200">
+</p>
 
 # Features
 
