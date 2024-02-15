@@ -5,7 +5,7 @@ Digital Stack Course
 
 # Screenshots
 
-![My Image](screenshots/homePage.png | width=100)
+![My Image](screenshots/homePage.png | width="100")
 ![My Image](screenshots/mainPage.png | width=100)
 ## Home page
 ![My Image](screenshots/photoPage.png | width=100)
