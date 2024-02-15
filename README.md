@@ -5,12 +5,12 @@ Digital Stack Course
 
 # Screenshots
 
-![My Image](screenshots/homePage.png | width="100")
-<img src="screenshots/homePage.png" width="100">
-![My Image](screenshots/mainPage.png | width=100)
 ## Home page
-![My Image](screenshots/photoPage.png | width=100)
+<img src="screenshots/homePage.png" width="200">
+<img src="screenshots/mainPage.png" width="200">
+
 ## Photo page
+<img src="screenshots/photoPage.png" width="200">
 
 # Features
 
